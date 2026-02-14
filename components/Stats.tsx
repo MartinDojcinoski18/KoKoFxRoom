@@ -1,5 +1,5 @@
 import React from 'react';
-import { Percent, Scale, ShieldAlert, Calculator, Wallet } from 'lucide-react';
+import { Percent, Scale, ShieldAlert, Wallet } from 'lucide-react';
 
 const Stats: React.FC = () => {
   return (

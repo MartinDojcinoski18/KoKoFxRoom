@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Plus, Minus, MessageCircle, HelpCircle, Send, UserX, ShieldCheck } from 'lucide-react';
+import { Plus, Minus, MessageCircle, HelpCircle, Send, ShieldCheck } from 'lucide-react';
 
 interface FAQItemProps {
   question: string;

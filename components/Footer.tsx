@@ -1,5 +1,5 @@
 import React from 'react';
-import { Send, Instagram, Twitter, Linkedin, Mail, ShieldAlert, Globe, Clock, CheckCircle2 } from 'lucide-react';
+import { Send, Instagram, Twitter, Linkedin, Mail, ShieldAlert, Globe, Clock } from 'lucide-react';
 import Logo from './Logo';
 
 interface FooterProps {

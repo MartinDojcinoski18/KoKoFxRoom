@@ -1,5 +1,5 @@
 import React from 'react';
-import { Crosshair, TrendingUp, BarChart2, ArrowUpRight, TrendingDown } from 'lucide-react';
+import { Crosshair, BarChart2, ArrowUpRight, TrendingDown } from 'lucide-react';
 
 const Showcase: React.FC = () => {
   return (

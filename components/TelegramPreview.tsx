@@ -1,5 +1,5 @@
 import React from 'react';
-import { Send, BarChart3, Lock, CheckCircle2, Signal, Wifi, Battery } from 'lucide-react';
+import { Send, Lock, CheckCircle2, Signal, Wifi, Battery } from 'lucide-react';
 
 const TelegramPreview: React.FC = () => {
   return (

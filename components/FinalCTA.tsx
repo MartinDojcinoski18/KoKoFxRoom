@@ -1,5 +1,5 @@
 import React from 'react';
-import { Send, ArrowRight } from 'lucide-react';
+import { Send } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 
 const FinalCTA: React.FC = () => {
