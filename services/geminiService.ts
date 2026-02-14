@@ -1,10 +1,26 @@
 import { GoogleGenAI } from "@google/genai";
 
-// Initialize Gemini Client
+// Initialize Gemini Client safely
 // IMPORTANT: The API key must be provided in the environment variable API_KEY
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+let ai: GoogleGenAI | null = null;
+
+try {
+  const apiKey = process.env.API_KEY;
+  if (apiKey && apiKey.length > 0) {
+    ai = new GoogleGenAI({ apiKey: apiKey });
+  } else {
+    console.warn("Gemini API Key is missing. AI features will use fallback text.");
+  }
+} catch (error) {
+  console.error("Failed to initialize Gemini Client:", error);
+}
 
 export const getTradingWisdom = async (): Promise<string> => {
+  // If AI client is not initialized, return fallback immediately
+  if (!ai) {
+    return "Discipline is the bridge between goals and accomplishment.";
+  }
+
   try {
     const model = 'gemini-3-flash-preview';
     const prompt = `
