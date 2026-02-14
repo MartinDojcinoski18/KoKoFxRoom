@@ -5,12 +5,9 @@ const CookieBanner: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Check if user has already accepted
     const consent = localStorage.getItem('kokofx-cookie-consent');
     if (!consent) {
-      // Show after a small delay for better UX
-      const timer = setTimeout(() => setIsVisible(true), 2000);
-      return () => clearTimeout(timer);
+      setTimeout(() => setIsVisible(true), 2500);
     }
   }, []);
 
@@ -22,39 +19,31 @@ const CookieBanner: React.FC = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-6 left-6 right-6 md:left-auto md:right-6 md:w-[400px] z-[100] animate-fade-in-up">
-      <div className="bg-[#151A21]/95 backdrop-blur-md border border-white/10 p-6 rounded-2xl shadow-2xl relative">
-        <div className="flex items-start gap-4">
-            <div className="p-3 bg-white/5 rounded-xl text-trading-accent shrink-0">
-                <Cookie size={24} />
-            </div>
-            <div>
-                <h4 className="text-white font-bold mb-2 text-sm">Privacy & Cookies</h4>
-                <p className="text-gray-400 text-xs leading-relaxed mb-4">
-                    We use cookies to analyze traffic and improve the experience. We do not sell your data to brokers. By continuing, you agree to our privacy policy.
-                </p>
-                <div className="flex gap-3">
-                    <button 
-                        onClick={handleAccept}
-                        className="px-4 py-2 bg-white text-black text-xs font-bold rounded-lg hover:bg-gray-200 transition-colors"
-                    >
-                        Accept All
-                    </button>
-                    <button 
-                        onClick={() => setIsVisible(false)}
-                        className="px-4 py-2 bg-transparent text-gray-400 text-xs font-bold rounded-lg hover:text-white transition-colors"
-                    >
-                        Decline
-                    </button>
-                </div>
+    <div className="fixed bottom-4 right-4 z-[100] max-w-[300px] w-full animate-fade-in-up">
+      <div className="bg-[#151A21] border border-trading-accent/20 p-4 rounded-xl shadow-2xl">
+        <div className="flex justify-between items-start mb-3">
+            <div className="flex items-center gap-2 text-trading-accent">
+                <Cookie size={18} />
+                <span className="text-xs font-bold uppercase tracking-wider">Privacy</span>
             </div>
             <button 
-                onClick={() => setIsVisible(false)}
-                className="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors"
+                onClick={() => setIsVisible(false)} 
+                className="text-gray-500 hover:text-white"
             >
-                <X size={16} />
+                <X size={14} />
             </button>
         </div>
+        
+        <p className="text-gray-400 text-[10px] leading-relaxed mb-3">
+            We use cookies to ensure you get the best experience. By continuing, you accept our privacy policy.
+        </p>
+        
+        <button 
+            onClick={handleAccept}
+            className="w-full py-2 bg-white/10 hover:bg-trading-accent hover:text-black text-white text-xs font-bold rounded transition-colors"
+        >
+            Accept
+        </button>
       </div>
     </div>
   );

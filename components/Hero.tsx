@@ -1,87 +1,73 @@
 import React from 'react';
-import { ArrowRight, Activity, ShieldCheck, TrendingUp } from 'lucide-react';
+import { ArrowRight, BarChart2 } from 'lucide-react';
 import { soundService } from '../services/soundService';
 
 const Hero: React.FC = () => {
   return (
-    <div className="relative overflow-hidden min-h-screen flex items-center justify-center pt-20 pb-10">
+    <div className="relative min-h-screen flex items-center justify-center pt-20 pb-10 overflow-hidden bg-[#0B0E11]">
       
-      {/* Dynamic Background Spotlight - Static Blur instead of Animation for Performance */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[500px] bg-trading-accent/10 blur-[120px] rounded-full pointer-events-none z-0"></div>
-
-      {/* Content */}
-      <div className="container mx-auto px-6 relative z-10 text-center">
+      {/* Background Effects */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-trading-accent/5 rounded-full blur-[120px] pointer-events-none translate-x-1/3 -translate-y-1/3"></div>
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-600/5 rounded-full blur-[120px] pointer-events-none -translate-x-1/3 translate-y-1/3"></div>
+      
+      <div className="container mx-auto px-6 relative z-10 text-center flex flex-col items-center">
         
-        {/* Top Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-gray-300 text-xs font-medium mb-12">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-          </span>
-          <span className="tracking-wide uppercase">Breaking the Cycle</span>
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-trading-accent text-xs font-bold tracking-widest uppercase mb-8 animate-fade-in-up">
+            <span className="w-2 h-2 rounded-full bg-trading-accent"></span>
+            KoKoFx Room
         </div>
 
-        {/* CLEAN TYPOGRAPHY HERO */}
-        <div className="mb-12 select-none">
-            <h1 className="text-7xl md:text-[140px] font-black leading-none tracking-tighter text-white drop-shadow-2xl">
-                KOKO<span className="text-transparent bg-clip-text bg-gradient-to-br from-trading-accent to-[#8a7018]">FX</span>
-            </h1>
-            <div className="h-2 w-32 bg-trading-accent mx-auto mt-4 rounded-full"></div>
-        </div>
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tight leading-tight mb-8 animate-fade-in-up" style={{animationDelay: '0.1s'}}>
+            Master the <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-trading-accent to-yellow-200">London Session.</span>
+        </h1>
         
-        {/* Subtitle */}
-        <p className="text-lg md:text-2xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed font-light">
-          The industry wants you to fail so they can sell you a solution. <br className="hidden md:block"/>
-          <span className="text-white font-medium">I'm here to show you the truth for free.</span>
+        <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+          Join the community of disciplined traders. 
+          <br />
+          Built on 4+ years of Price Action experience and strict Risk Management.
         </p>
 
-        {/* CTA Buttons - Clean & Fast */}
-        <div className="flex flex-col md:flex-row gap-4 justify-center items-center mb-20">
+        <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md mx-auto animate-fade-in-up" style={{animationDelay: '0.3s'}}>
             <a 
                 href="https://t.me/kokofxroom"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => soundService.playClick()}
-                className="group relative px-8 py-4 bg-white text-black font-black text-lg rounded-xl hover:bg-gray-200 transition-all hover:-translate-y-1 shadow-[0_0_20px_rgba(255,255,255,0.2)] flex items-center gap-3"
+                className="flex-1 px-8 py-4 bg-trading-accent text-black font-bold text-sm uppercase tracking-widest rounded-xl hover:bg-[#ffe16b] transition-all flex items-center justify-center gap-3 shadow-lg shadow-trading-accent/20"
             >
-                ENTER THE ROOM
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <span>Join The Room</span>
+                <ArrowRight size={16} />
             </a>
 
             <button 
                 onClick={() => {
                     soundService.playClick();
-                    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+                    document.getElementById('showcase')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="px-8 py-4 bg-[#151A21] text-white font-bold text-lg rounded-xl border border-white/10 hover:bg-[#1f2630] transition-all hover:-translate-y-1"
+                className="flex-1 px-8 py-4 bg-white/5 border border-white/10 text-white font-bold text-sm uppercase tracking-widest hover:bg-white/10 transition-all flex items-center justify-center gap-3 rounded-xl"
             >
-                THE MISSION
+                <BarChart2 size={16} />
+                <span>View Results</span>
             </button>
         </div>
 
-        {/* Trust Indicators / Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-4 max-w-5xl mx-auto border-t border-white/10 pt-10">
-          <div className="text-center group cursor-default">
-            <div className="flex justify-center mb-2 text-trading-muted group-hover:text-white transition-colors"><Activity size={24}/></div>
-            <p className="text-2xl font-bold text-white tracking-tight">No</p>
-            <p className="text-xs text-gray-500 uppercase tracking-widest mt-1">Hidden Fees</p>
-          </div>
-          <div className="text-center group cursor-default">
-             <div className="flex justify-center mb-2 text-trading-muted group-hover:text-white transition-colors"><ShieldCheck size={24}/></div>
-            <p className="text-2xl font-bold text-white tracking-tight">100%</p>
-            <p className="text-xs text-gray-500 uppercase tracking-widest mt-1">Honesty</p>
-          </div>
-           <div className="text-center group cursor-default">
-             <div className="flex justify-center mb-2 text-trading-muted group-hover:text-white transition-colors"><TrendingUp size={24}/></div>
-            <p className="text-2xl font-bold text-white tracking-tight">Real</p>
-            <p className="text-xs text-gray-500 uppercase tracking-widest mt-1">Market Logic</p>
-          </div>
-           <div className="text-center group cursor-default">
-             <div className="flex justify-center mb-2 text-trading-muted group-hover:text-white transition-colors"><span className="text-xl font-serif italic">i</span></div>
-            <p className="text-2xl font-bold text-white tracking-tight">Est.</p>
-            <p className="text-xs text-gray-500 uppercase tracking-widest mt-1">2017 Journey</p>
-          </div>
+        {/* Stats Strip */}
+        <div className="mt-20 flex flex-wrap justify-center gap-8 md:gap-16 border-t border-white/5 pt-8 animate-fade-in-up" style={{animationDelay: '0.4s'}}>
+            <div className="text-center">
+                <p className="text-3xl font-bold text-white">4+</p>
+                <p className="text-xs text-gray-500 uppercase tracking-widest mt-1">Years Experience</p>
+            </div>
+            <div className="text-center">
+                <p className="text-3xl font-bold text-white">100%</p>
+                <p className="text-xs text-gray-500 uppercase tracking-widest mt-1">Free Education</p>
+            </div>
+            <div className="text-center">
+                <p className="text-3xl font-bold text-white">GBP/USD</p>
+                <p className="text-xs text-gray-500 uppercase tracking-widest mt-1">Primary Pair</p>
+            </div>
         </div>
+
       </div>
     </div>
   );

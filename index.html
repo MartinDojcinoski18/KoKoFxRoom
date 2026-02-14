@@ -10,22 +10,8 @@
     <meta name="description" content="Official community of Martin Dojchinoski. Price Action, Risk Management & Discipline. No fake promises. Just raw execution. Join the Room.">
     <meta name="theme-color" content="#0B0E11">
 
-    <!-- Open Graph / Facebook / Telegram -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://kokofx.com/">
-    <meta property="og:title" content="KoKoFx Room | Professional Trading Community">
-    <meta property="og:description" content="Official community of Martin Dojchinoski. Price Action, Risk Management & Discipline. No fake promises.">
-    <meta property="og:image" content="/og-image.jpg">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://kokofx.com/">
-    <meta property="twitter:title" content="KoKoFx Room | Professional Trading Community">
-    <meta property="twitter:description" content="Official community of Martin Dojchinoski. Price Action, Risk Management & Discipline.">
-    <meta property="twitter:image" content="/og-image.jpg">
-
+    <!-- Tailwind CSS CDN (Fail-safe) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
@@ -37,7 +23,7 @@
               trading: {
                 bg: '#0B0E11',
                 card: '#151A21',
-                accent: '#D4AF37', // Gold color for KoKoFx
+                accent: '#D4AF37',
                 loss: '#FF3B30',
                 text: '#E0E6ED',
                 muted: '#94A3B8'
@@ -46,112 +32,86 @@
             animation: {
               'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
               'float': 'float 6s ease-in-out infinite',
+              'fade-in-up': 'fadeInUp 0.5s ease-out forwards',
             },
             keyframes: {
               float: {
                 '0%, 100%': { transform: 'translateY(0)' },
                 '50%': { transform: 'translateY(-20px)' },
+              },
+              fadeInUp: {
+                  '0%': { opacity: '0', transform: 'translateY(10px)' },
+                  '100%': { opacity: '1', transform: 'translateY(0)' },
               }
             }
-          },
-        },
-      }
-    </script>
-    <style>
-      body {
-        background-color: #0B0E11;
-        color: #E0E6ED;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-      .glass-panel {
-        background: rgba(21, 26, 33, 0.7);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-      }
-      
-      /* Robust Flip Card CSS */
-      .perspective-1000 {
-        perspective: 1200px;
-      }
-      
-      .flip-card-inner {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        text-align: center;
-        transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Added bounce effect */
-        transform-style: preserve-3d;
-        -webkit-transform-style: preserve-3d;
-      }
-      
-      .group:hover .flip-card-inner, 
-      .group:active .flip-card-inner {
-        transform: rotateY(180deg);
-      }
-      
-      .flip-card-front, 
-      .flip-card-back {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        -webkit-backface-visibility: hidden; /* Safari */
-        backface-visibility: hidden;
-        top: 0;
-        left: 0;
-      }
-      
-      .flip-card-back {
-        transform: rotateY(180deg);
-      }
-
-      /* 3D Showcase specific */
-      .preserve-3d {
-        transform-style: preserve-3d;
-        -webkit-transform-style: preserve-3d;
-      }
-      
-      /* Smooth Scrolling */
-      html {
-        scroll-behavior: smooth;
-      }
-
-      /* Hide Default Cursor ONLY on Desktop/Hover-capable devices */
-      @media (hover: hover) and (pointer: fine) {
-        body, a, button, input, textarea, select, [role="button"] {
-          cursor: none !important;
+          }
         }
       }
+    </script>
+    
+    <!-- Custom CSS for Scrollbar & Utilities -->
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .glass-panel {
+          @apply bg-[#151A21]/70 backdrop-blur-md border border-white/5;
+        }
+        .perspective-1000 {
+          perspective: 1200px;
+        }
+        .flip-card-inner {
+          transform-style: preserve-3d;
+          transition: transform 0.8s;
+        }
+        .group:hover .flip-card-inner {
+          transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+          backface-visibility: hidden;
+        }
+        .flip-card-back {
+          transform: rotateY(180deg);
+        }
+      }
+      
+      body {
+        background-color: #050505;
+        color: #E0E6ED;
+        font-family: 'Inter', sans-serif;
+      }
 
-      /* Custom Scrollbar for Dark Theme */
+      /* Scrollbar */
       ::-webkit-scrollbar {
-        width: 10px;
+        width: 6px;
       }
       ::-webkit-scrollbar-track {
-        background: #0B0E11;
+        background: #050505;
       }
       ::-webkit-scrollbar-thumb {
         background: #333;
-        border-radius: 5px;
-        border: 2px solid #0B0E11;
+        border-radius: 3px;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #D4AF37; /* Gold on hover */
+        background: #D4AF37;
       }
     </style>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <script type="importmap">
 {
   "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
     "@google/genai": "https://esm.sh/@google/genai@^1.41.0",
     "lucide-react": "https://esm.sh/lucide-react@^0.564.0",
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "react": "https://esm.sh/react@^19.2.4",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.4"
   }
 }
 </script>
 </head>
   <body>
     <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>
