@@ -38,7 +38,7 @@ const LegalPages: React.FC<LegalPageProps> = ({ type, onBack }) => {
 
                 <h3 className="text-xl font-bold text-white mt-8">3. Educational Nature</h3>
                 <p>
-                    Any opinions, news, research, analyses, prices, or other information contained on this website or in the "KoKoFx Room" Telegram group is provided as general market commentary and educational material, and <strong className="text-white">DOES NOT constitute investment advice</strong>. KoKoFx Room and Martin Dojchinoski will not accept liability for any loss or damage, including without limitation to, any loss of profit, which may arise directly or indirectly from use of or reliance on such information.
+                    Any opinions, news, research, analyses, prices, or other information contained on this website or in the "KoKoFx Room" Telegram group is provided as general market commentary and educational material, and <strong className="text-white">DOES NOT constitute investment advice</strong>. KoKoFx Room will not accept liability for any loss or damage, including without limitation to, any loss of profit, which may arise directly or indirectly from use of or reliance on such information.
                 </p>
 
                 <h3 className="text-xl font-bold text-white mt-8">4. Past Performance</h3>

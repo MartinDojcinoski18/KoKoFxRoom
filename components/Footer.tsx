@@ -128,7 +128,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                         <strong>HIGH RISK WARNING:</strong> Trading Foreign Exchange (Forex) and Contracts for Differences (CFDs) is highly speculative, carries a high level of risk, and may not be suitable for all investors. You may sustain a loss of some or all of your invested capital, therefore, you should not speculate with capital that you cannot afford to lose. You should be aware of all the risks associated with trading on margin.
                     </p>
                     <p className="text-xs text-gray-500 leading-relaxed text-justify">
-                        The content of this website is solely for educational and informational purposes and should not be construed as financial advice. KoKoFx Room and Martin Dojchinoski accept no liability for any loss or damage resulting from reliance on the information contained on this site.
+                        The content of this website is solely for educational and informational purposes and should not be construed as financial advice. KoKoFx Room accepts no liability for any loss or damage resulting from reliance on the information contained on this site.
                     </p>
                 </div>
              </div>

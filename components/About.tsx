@@ -25,7 +25,7 @@ const About: React.FC = () => {
             <div className="prose prose-invert max-w-none mb-12">
                 <ScrollReveal delay={200}>
                     <p className="text-gray-300 text-lg leading-relaxed mb-6">
-                        My name is <strong>Martin Dojchinoski</strong>. I have been navigating the Forex markets for over 4 years. 
+                        I am the <strong>Head Trader</strong> behind KoKoFx. I have been navigating the Forex markets for over 4 years. 
                         My journey wasn't easy—it was built on trial, error, and eventual consistency.
                     </p>
                 </ScrollReveal>
