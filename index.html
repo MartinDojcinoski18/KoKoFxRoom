@@ -49,52 +49,6 @@
       }
     </script>
     
-    <!-- Custom CSS for Scrollbar & Utilities -->
-    <style type="text/tailwindcss">
-      @layer utilities {
-        .glass-panel {
-          @apply bg-[#151A21]/70 backdrop-blur-md border border-white/5;
-        }
-        .perspective-1000 {
-          perspective: 1200px;
-        }
-        .flip-card-inner {
-          transform-style: preserve-3d;
-          transition: transform 0.8s;
-        }
-        .group:hover .flip-card-inner {
-          transform: rotateY(180deg);
-        }
-        .flip-card-front, .flip-card-back {
-          backface-visibility: hidden;
-        }
-        .flip-card-back {
-          transform: rotateY(180deg);
-        }
-      }
-      
-      body {
-        background-color: #050505;
-        color: #E0E6ED;
-        font-family: 'Inter', sans-serif;
-      }
-
-      /* Scrollbar */
-      ::-webkit-scrollbar {
-        width: 6px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #050505;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #333;
-        border-radius: 3px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #D4AF37;
-      }
-    </style>
-
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <script type="importmap">
 {
