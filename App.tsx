@@ -32,7 +32,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0B0E11] text-trading-text font-sans selection:bg-trading-accent selection:text-black flex flex-col relative">
+    <div className="min-h-screen bg-[#050709] text-trading-text font-sans selection:bg-trading-accent/30 selection:text-white flex flex-col relative">
       {/* SECURITY LAYER - ACTIVATED */}
       <Security />
       
@@ -41,6 +41,9 @@ function App() {
       
       {/* Modern Custom Cursor */}
       <CustomCursor />
+
+      {/* Global Texture (Noise) - Makes it look premium/real */}
+      <div className="bg-noise"></div>
 
       {/* Global Background Animation */}
       <BackgroundAnimation />
@@ -57,8 +60,8 @@ function App() {
             <Hero />
             <MarketTerminal />
             <Transparency />
-            <About />
             <Stats />
+            <About />
             <TradingRules />
             <DailyChecklist />
             <Showcase />

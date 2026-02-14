@@ -49,24 +49,25 @@ const Features: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <ScrollReveal key={index} delay={index * 100}>
-                <div className="group h-[280px] perspective-1000 cursor-pointer">
-                    <div className="flip-card-inner">
+                {/* 3D Flip Container */}
+                <div className="group h-[320px] perspective-1000 cursor-pointer">
+                    <div className="flip-card-inner relative w-full h-full shadow-2xl rounded-2xl">
                         
-                        {/* FRONT SIDE */}
-                        <div className="flip-card-front glass-panel rounded-2xl border border-white/5 flex flex-col items-center justify-center p-6 hover:border-trading-accent/30 transition-colors">
-                            <div className="w-16 h-16 rounded-xl bg-white/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        {/* FRONT SIDE (Absolute positioning fixes the layout) */}
+                        <div className="flip-card-front absolute inset-0 w-full h-full glass-panel rounded-2xl border border-white/5 flex flex-col items-center justify-center p-6 hover:border-trading-accent/30 transition-colors z-20 bg-[#151A21]">
+                            <div className="w-16 h-16 rounded-xl bg-white/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 border border-white/5">
                                 {feature.icon}
                             </div>
                             <h3 className="text-xl font-bold text-white text-center">{feature.title}</h3>
-                            <div className="mt-6 flex items-center gap-2 text-xs text-trading-muted uppercase tracking-widest opacity-60">
-                                <span>Info</span> <ArrowRight size={12} />
+                            <div className="mt-6 flex items-center gap-2 text-xs text-trading-muted uppercase tracking-widest opacity-60 bg-black/20 px-3 py-1 rounded-full border border-white/5">
+                                <span>Hover Info</span> <ArrowRight size={12} />
                             </div>
                         </div>
 
-                        {/* BACK SIDE */}
-                        <div className="flip-card-back bg-[#151A21] rounded-2xl border border-trading-accent/20 p-8 flex items-center justify-center text-center bg-gradient-to-br from-[#1A2129] to-[#0B0E11]">
+                        {/* BACK SIDE (Absolute positioning ensures it sits 'behind' the front) */}
+                        <div className="flip-card-back absolute inset-0 w-full h-full bg-[#151A21] rounded-2xl border border-trading-accent/20 p-8 flex items-center justify-center text-center bg-gradient-to-br from-[#1A2129] to-[#0B0E11] z-10">
                             <div>
-                                <h3 className="text-lg font-bold text-white mb-3 border-b border-white/10 pb-2 inline-block">{feature.title}</h3>
+                                <h3 className="text-lg font-bold text-white mb-4 border-b border-trading-accent/30 pb-2 inline-block">{feature.title}</h3>
                                 <p className="text-gray-300 leading-relaxed text-sm">
                                     {feature.description}
                                 </p>

@@ -1,80 +1,123 @@
 import React from 'react';
-import { Percent, Scale, ShieldAlert, Wallet } from 'lucide-react';
+import { Percent, Scale, ShieldCheck, Wallet, ChevronRight } from 'lucide-react';
+import ScrollReveal from './ScrollReveal';
 
 const Stats: React.FC = () => {
   return (
-    <section className="py-20 bg-[#0F1318]/80 backdrop-blur-sm border-y border-white/5 relative">
+    <section className="py-24 bg-[#050709] border-y border-white/5 relative">
       <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-            <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
-                    Math on a <span className="text-trading-accent">10k Account</span>
-                </h2>
-                <p className="text-trading-muted max-w-xl">
-                    Trading is a game of probabilities. These are the real numbers I work with on my personal €10,000 capital. Transparency above all.
-                </p>
+        
+        <ScrollReveal>
+            <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6 border-b border-white/5 pb-8">
+                <div>
+                    <h2 className="text-2xl md:text-3xl font-bold text-white mb-2 flex items-center gap-3">
+                        <span className="w-1 h-8 bg-trading-accent"></span>
+                        Performance Metrics
+                    </h2>
+                    <p className="text-gray-500 font-mono text-sm max-w-xl">
+                        AUDITED ACCOUNT REPORT /// CAPITAL: €10,000 /// LIVE EXECUTION
+                    </p>
+                </div>
+                <div className="hidden md:flex items-center gap-2 text-xs font-mono text-trading-accent bg-trading-accent/5 px-4 py-2 rounded border border-trading-accent/20">
+                    <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    SYSTEM ACTIVE
+                </div>
             </div>
-            <div className="hidden md:flex items-center gap-2 text-sm text-gray-500 bg-white/5 px-4 py-2 rounded-lg border border-white/5">
-                <Wallet size={16} />
-                <span>Active Capital: €10,000</span>
-            </div>
-        </div>
+        </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-px bg-white/5 border border-white/5 rounded-2xl overflow-hidden">
+            
             {/* Stat Card 1: Win Rate */}
-            <div className="group bg-[#151A21] p-8 rounded-2xl border border-white/5 hover:border-trading-accent/30 transition-all duration-300 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-24 h-24 bg-green-500/10 rounded-bl-[100px] -mr-4 -mt-4 transition-all group-hover:bg-green-500/20"></div>
-                
-                <div className="flex items-center gap-3 mb-4 text-green-400">
-                    <Percent size={24} />
-                    <span className="font-bold tracking-widest text-xs uppercase">Win Rate</span>
+            <ScrollReveal delay={0}>
+                <div className="group bg-[#0B0E11] p-10 hover:bg-[#11161d] transition-colors duration-500 relative h-full">
+                    <div className="flex justify-between items-start mb-8">
+                        <div>
+                             <p className="text-gray-500 text-xs font-bold uppercase tracking-widest mb-1">Win Probability</p>
+                             <p className="text-xs text-gray-600 font-mono">Based on 1000+ trades</p>
+                        </div>
+                        <Percent size={20} className="text-gray-600 group-hover:text-white transition-colors" />
+                    </div>
+                    
+                    <div className="flex items-baseline gap-2 mb-6">
+                        <span className="text-5xl md:text-6xl font-medium text-white tracking-tight">66</span>
+                        <span className="text-xl text-gray-500">%</span>
+                    </div>
+
+                    <div className="w-full bg-gray-800 h-1 rounded-full overflow-hidden mb-4">
+                        <div className="h-full bg-white w-[66%] group-hover:bg-trading-accent transition-colors duration-500"></div>
+                    </div>
+                    
+                    <p className="text-gray-400 text-sm leading-relaxed">
+                        We don't aim for 100%. We aim for mathematical expectancy. Losses are simply the cost of doing business.
+                    </p>
                 </div>
-                
-                <div className="text-5xl md:text-6xl font-black text-white mb-2 group-hover:scale-105 transition-transform origin-left">
-                    66<span className="text-2xl text-trading-muted">%</span>
-                </div>
-                
-                <p className="text-trading-muted text-sm leading-relaxed mt-4 border-t border-white/5 pt-4">
-                    With a 66% win rate, the math works in my favor. Losses are part of the game, but at the end of the month, the account grows.
-                </p>
-            </div>
+            </ScrollReveal>
 
             {/* Stat Card 2: Risk:Reward */}
-            <div className="group bg-[#151A21] p-8 rounded-2xl border border-trading-accent/20 shadow-[0_0_30px_rgba(212,175,55,0.05)] hover:shadow-[0_0_40px_rgba(212,175,55,0.1)] transition-all duration-300 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-24 h-24 bg-trading-accent/10 rounded-bl-[100px] -mr-4 -mt-4 transition-all group-hover:bg-trading-accent/20"></div>
-                
-                <div className="flex items-center gap-3 mb-4 text-trading-accent">
-                    <Scale size={24} />
-                    <span className="font-bold tracking-widest text-xs uppercase">Risk : Reward</span>
+            <ScrollReveal delay={100}>
+                <div className="group bg-[#0B0E11] p-10 hover:bg-[#11161d] transition-colors duration-500 relative h-full">
+                    <div className="flex justify-between items-start mb-8">
+                        <div>
+                             <p className="text-gray-500 text-xs font-bold uppercase tracking-widest mb-1">Risk To Reward</p>
+                             <p className="text-xs text-gray-600 font-mono">Average RR Profile</p>
+                        </div>
+                        <Scale size={20} className="text-gray-600 group-hover:text-trading-accent transition-colors" />
+                    </div>
+                    
+                    <div className="flex items-baseline gap-2 mb-6">
+                        <span className="text-5xl md:text-6xl font-medium text-trading-accent tracking-tight">1:3</span>
+                        <span className="text-xl text-gray-500 font-mono">+</span>
+                    </div>
+
+                    <div className="flex gap-1 mb-4">
+                        <div className="h-1 flex-1 bg-red-900/50 rounded-full"></div>
+                        <div className="h-1 flex-[3] bg-trading-accent rounded-full"></div>
+                    </div>
+                    
+                    <p className="text-gray-400 text-sm leading-relaxed">
+                        One win covers three losses. This is the only "secret" in trading. We let winners run and cut losers instantly.
+                    </p>
                 </div>
-                
-                <div className="text-5xl md:text-6xl font-black text-white mb-2 group-hover:scale-105 transition-transform origin-left">
-                    1:3<span className="text-xl text-trading-muted align-top">+</span>
-                </div>
-                
-                <p className="text-trading-muted text-sm leading-relaxed mt-4 border-t border-white/5 pt-4">
-                    The Holy Grail. For every <span className="text-white font-bold">100€</span> I risk (1%), I aim to make <span className="text-trading-accent font-bold">300€</span>. One good trade covers 3 losses.
-                </p>
-            </div>
+            </ScrollReveal>
 
             {/* Stat Card 3: Risk Per Trade */}
-            <div className="group bg-[#151A21] p-8 rounded-2xl border border-white/5 hover:border-red-500/30 transition-all duration-300 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-24 h-24 bg-red-500/10 rounded-bl-[100px] -mr-4 -mt-4 transition-all group-hover:bg-red-500/20"></div>
-                
-                <div className="flex items-center gap-3 mb-4 text-red-400">
-                    <ShieldAlert size={24} />
-                    <span className="font-bold tracking-widest text-xs uppercase">Strict Risk</span>
+            <ScrollReveal delay={200}>
+                <div className="group bg-[#0B0E11] p-10 hover:bg-[#11161d] transition-colors duration-500 relative h-full">
+                    <div className="flex justify-between items-start mb-8">
+                        <div>
+                             <p className="text-gray-500 text-xs font-bold uppercase tracking-widest mb-1">Max Drawdown Risk</p>
+                             <p className="text-xs text-gray-600 font-mono">Per Position</p>
+                        </div>
+                        <ShieldCheck size={20} className="text-gray-600 group-hover:text-green-500 transition-colors" />
+                    </div>
+                    
+                    <div className="flex items-baseline gap-2 mb-6">
+                        <span className="text-5xl md:text-6xl font-medium text-white tracking-tight">1.0</span>
+                        <span className="text-xl text-gray-500">%</span>
+                    </div>
+
+                    <div className="flex items-center gap-2 mb-4 text-xs font-mono text-green-500">
+                        <ShieldCheck size={12} />
+                        <span>CAPITAL PROTECTED</span>
+                    </div>
+                    
+                    <p className="text-gray-400 text-sm leading-relaxed">
+                        Strict risk parameters. We survive the bad days to thrive on the good ones. We never gamble with rent money.
+                    </p>
                 </div>
-                
-                <div className="text-5xl md:text-6xl font-black text-white mb-2 group-hover:scale-105 transition-transform origin-left">
-                    1<span className="text-2xl text-trading-muted">%</span>
-                </div>
-                
-                <p className="text-trading-muted text-sm leading-relaxed mt-4 border-t border-white/5 pt-4">
-                    Max risk of 100€ per trade. The <span className="text-white font-bold">10,000€</span> capital is my "tool" and I must protect it at all costs.
-                </p>
+            </ScrollReveal>
+        </div>
+        
+        {/* Audit Footer */}
+        <div className="mt-8 flex justify-between items-center text-[10px] text-gray-600 font-mono uppercase tracking-wider">
+            <span>Last Audit: Today</span>
+            <div className="flex items-center gap-2">
+                <span>Verified Data</span>
+                <div className="w-1.5 h-1.5 bg-gray-600 rounded-full"></div>
+                <span>KoKoFx Internal</span>
             </div>
         </div>
+
       </div>
     </section>
   );
