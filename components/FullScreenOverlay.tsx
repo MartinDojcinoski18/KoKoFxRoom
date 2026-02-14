@@ -25,7 +25,7 @@ const FullScreenOverlay: React.FC = () => {
       console.log("Full screen info: ", err);
     }
 
-    // Remove component after animation finishes (1s duration)
+    // Wait for the aggressive animation to finish before unmounting
     setTimeout(() => {
         setIsVisible(false);
     }, 800);
@@ -36,42 +36,52 @@ const FullScreenOverlay: React.FC = () => {
   return (
     <div 
         // Forced cursor: auto to ensure mouse is visible here
-        // Transition classes for the Zoom Out effect
-        className={`fixed inset-0 z-[99999] bg-[#050709] flex flex-col items-center justify-center p-6 text-center transition-all duration-700 ease-[cubic-bezier(0.7,0,0.3,1)] ${
-            isAnimating ? 'opacity-0 scale-[2] pointer-events-none filter blur-sm' : 'opacity-100 scale-100'
+        // Aggressive Zoom Out Transition
+        className={`fixed inset-0 z-[99999] bg-[#050709] flex flex-col items-center justify-center p-6 text-center overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.7,0,0.3,1)] ${
+            isAnimating 
+                ? 'opacity-0 scale-[5] pointer-events-none filter blur-2xl bg-[#0B0E11]' 
+                : 'opacity-100 scale-100'
         }`}
         style={{ cursor: 'auto' }} 
     >
-      {/* Background Grid */}
-      <div className="absolute inset-0 opacity-[0.05]" style={{backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', backgroundSize: '30px 30px'}}></div>
+      {/* Background Grid - Explodes towards user */}
+      <div className="absolute inset-0 opacity-[0.08]" style={{backgroundImage: 'radial-gradient(#D4AF37 1px, transparent 1px)', backgroundSize: '40px 40px'}}></div>
       
-      <div className={`relative z-10 max-w-lg w-full transition-all duration-500 ${isAnimating ? 'scale-50 opacity-0' : 'scale-100'}`}>
+      {/* Flash Effect on Trigger */}
+      <div className={`absolute inset-0 bg-white/10 transition-opacity duration-300 ${isAnimating ? 'opacity-100' : 'opacity-0'}`}></div>
+
+      {/* Content Container - Implodes (Shrinks) while background Explodes */}
+      <div className={`relative z-10 max-w-lg w-full transition-all duration-500 ease-in ${
+          isAnimating ? 'scale-0 opacity-0 rotate-12 translate-z-[-100px]' : 'scale-100 opacity-100 rotate-0'
+      }`}>
+        
         <div className="mb-8 flex justify-center">
-            <div className="w-20 h-20 bg-trading-accent/10 rounded-2xl border border-trading-accent/30 flex items-center justify-center animate-pulse shadow-[0_0_30px_rgba(212,175,55,0.2)]">
-                <Zap size={40} className="text-trading-accent" />
+            <div className="w-24 h-24 bg-trading-accent/10 rounded-3xl border border-trading-accent/30 flex items-center justify-center animate-pulse shadow-[0_0_50px_rgba(212,175,55,0.15)] relative overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-trading-accent/20 to-transparent translate-y-full group-hover:translate-y-[-200%] transition-transform duration-1000"></div>
+                <Zap size={48} className="text-trading-accent" fill="currentColor" />
             </div>
         </div>
 
-        <h1 className="text-4xl md:text-5xl font-black text-white mb-2 tracking-tighter uppercase">
-            KoKo<span className="text-trading-accent">Fx</span> Room
+        <h1 className="text-5xl md:text-7xl font-black text-white mb-4 tracking-tighter uppercase drop-shadow-2xl">
+            KoKo<span className="text-trading-accent">Fx</span>
         </h1>
-        <p className="text-gray-500 text-sm font-mono tracking-widest uppercase mb-12">
-            Secure Trading Terminal
-        </p>
+        
+        <div className="h-px w-24 bg-gradient-to-r from-transparent via-gray-500 to-transparent mx-auto mb-8"></div>
 
-        <div className="space-y-4">
+        <div className="space-y-6">
             <button 
                 onClick={handleEnter}
-                className="group relative w-full py-5 bg-white text-black font-black text-lg uppercase tracking-widest rounded-xl hover:bg-trading-accent transition-all shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_50px_rgba(212,175,55,0.4)] hover:scale-[1.02] flex items-center justify-center gap-3 active:scale-95"
+                className="group relative w-full py-6 bg-white text-black font-black text-xl uppercase tracking-[0.2em] rounded-xl hover:bg-trading-accent transition-all shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_60px_rgba(212,175,55,0.6)] hover:scale-[1.02] flex items-center justify-center gap-4 active:scale-95 overflow-hidden"
             >
-                <Maximize size={20} />
+                <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 skew-x-12"></div>
+                <Maximize size={24} />
                 <span>Initialize System</span>
             </button>
             
-            <div className="flex justify-center gap-6 text-[10px] text-gray-600 uppercase tracking-wider font-bold mt-8">
-                <span className="flex items-center gap-1"><ShieldCheck size={10} /> Encrypted</span>
-                <span className="flex items-center gap-1"><Zap size={10} /> Fast Data</span>
-                <span className="flex items-center gap-1">F11 Immersive</span>
+            <div className="flex justify-center gap-8 text-[11px] text-gray-500 uppercase tracking-widest font-bold mt-10">
+                <span className="flex items-center gap-2"><ShieldCheck size={12} className="text-green-500" /> Secure</span>
+                <span className="flex items-center gap-2"><Zap size={12} className="text-yellow-500" /> Real-Time</span>
+                <span className="flex items-center gap-2 border border-gray-700 px-2 py-0.5 rounded text-gray-400">F11 Mode</span>
             </div>
         </div>
       </div>
