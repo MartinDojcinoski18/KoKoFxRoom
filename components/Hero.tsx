@@ -12,9 +12,37 @@ const Hero: React.FC = () => {
       
       <div className="container mx-auto px-6 relative z-10 text-center flex flex-col items-center">
         
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-trading-accent text-xs font-bold tracking-widest uppercase mb-8 animate-fade-in-up">
-            <span className="w-2 h-2 rounded-full bg-trading-accent"></span>
-            KoKoFx Room
+        {/* 3D BOARD HERO ELEMENT */}
+        <div className="perspective-1000 mb-16 animate-fade-in-up" style={{animationDelay: '0s'}}>
+            <div className="relative transform transition-transform duration-500 hover:scale-105 hover:rotate-1 cursor-default group">
+                
+                {/* Glow behind */}
+                <div className="absolute inset-0 bg-trading-accent/20 blur-3xl rounded-2xl group-hover:bg-trading-accent/30 transition-all duration-700"></div>
+                
+                {/* The 3D Board Itself */}
+                <div className="relative bg-[#151A21] border border-white/10 px-12 py-6 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex items-center gap-5 bg-gradient-to-b from-[#1a2029] to-[#0B0E11] overflow-hidden">
+                    
+                    {/* Top Highlight (Glass edge) */}
+                    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
+                    
+                    {/* Metallic Shine Animation */}
+                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:animate-[shine_1.5s_ease-in-out_infinite]"></div>
+
+                    {/* Indicator Light */}
+                    <div className="relative">
+                        <div className="w-3 h-3 bg-trading-accent rounded-full shadow-[0_0_15px_#D4AF37] animate-pulse"></div>
+                        <div className="absolute inset-0 bg-trading-accent rounded-full animate-ping opacity-20"></div>
+                    </div>
+
+                    {/* Text 3D Effect */}
+                    <h1 className="text-4xl md:text-5xl font-black text-white tracking-[0.2em] uppercase drop-shadow-2xl" style={{textShadow: '0 4px 10px rgba(0,0,0,0.8)'}}>
+                        KoKo<span className="text-trading-accent">Fx</span>
+                    </h1>
+                </div>
+                
+                {/* 3D Depth/Shadow Layer */}
+                <div className="absolute top-3 left-3 w-full h-full bg-black/60 rounded-2xl -z-10 blur-sm"></div>
+            </div>
         </div>
 
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tight leading-tight mb-8 animate-fade-in-up" style={{animationDelay: '0.1s'}}>
@@ -69,6 +97,13 @@ const Hero: React.FC = () => {
         </div>
 
       </div>
+      
+      <style>{`
+        @keyframes shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+      `}</style>
     </div>
   );
 };

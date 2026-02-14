@@ -20,7 +20,6 @@ import DailyChecklist from './components/DailyChecklist';
 import FinalCTA from './components/FinalCTA';
 import CookieBanner from './components/CookieBanner';
 import Security from './components/Security';
-import MentalTicker from './components/MentalTicker';
 
 type PageView = 'home' | 'risk' | 'privacy' | 'terms';
 
@@ -52,7 +51,6 @@ function App() {
         {currentView === 'home' ? (
           <>
             <Hero />
-            <MentalTicker />
             <MarketTerminal />
             <Transparency />
             <About />
