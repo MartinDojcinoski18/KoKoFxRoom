@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Logo from './Logo';
-import { Menu, X, Send, Volume2, VolumeX, ArrowRight } from 'lucide-react';
+import { Menu, X, Send, Volume2, VolumeX, ArrowRight, Maximize, Minimize } from 'lucide-react';
 import { soundService } from '../services/soundService';
 
 interface NavbarProps {
@@ -11,19 +11,43 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isMuted, setIsMuted] = useState(soundService.getMuteStatus());
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
+
+    const handleFullscreenChange = () => {
+        setIsFullscreen(!!document.fullscreenElement);
+    };
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    
+    return () => {
+        window.removeEventListener('scroll', handleScroll);
+        document.removeEventListener('fullscreenchange', handleFullscreenChange);
+    };
   }, []);
 
   const toggleSound = () => {
     const muted = soundService.toggleMute();
     setIsMuted(muted);
     if (!muted) soundService.playClick();
+  };
+
+  const toggleFullScreen = () => {
+    soundService.playClick();
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {
+            console.log(`Error attempting to enable full-screen mode: ${err.message}`);
+        });
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        }
+    }
   };
 
   const navItems = [
@@ -74,6 +98,16 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
                 </div>
                 
                 <div className="flex items-center gap-3">
+                    {/* Screen Toggle */}
+                    <button 
+                        onClick={toggleFullScreen}
+                        className="hidden md:flex w-9 h-9 items-center justify-center rounded-full bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition-all border border-white/5"
+                        title={isFullscreen ? "Exit Full Screen" : "Enter Full Screen"}
+                    >
+                        {isFullscreen ? <Minimize size={14} /> : <Maximize size={14} />}
+                    </button>
+
+                    {/* Sound Toggle */}
                     <button 
                         onClick={toggleSound}
                         className="w-9 h-9 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition-all border border-white/5"
