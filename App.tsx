@@ -22,6 +22,7 @@ import CookieBanner from './components/CookieBanner';
 import Security from './components/Security';
 import RiskCalculator from './components/Calculator';
 import Glossary from './components/Glossary';
+import FullScreenOverlay from './components/FullScreenOverlay';
 
 type PageView = 'home' | 'risk' | 'privacy' | 'terms';
 
@@ -36,6 +37,9 @@ function App() {
     <div className="min-h-screen bg-[#050709] text-trading-text font-sans selection:bg-trading-accent/30 selection:text-white flex flex-col relative">
       {/* SECURITY LAYER - ACTIVATED */}
       <Security />
+      
+      {/* MATRIX / BOOT SYSTEM OVERLAY */}
+      <FullScreenOverlay />
       
       {/* Modern Custom Cursor */}
       <CustomCursor />
