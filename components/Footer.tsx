@@ -73,7 +73,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <h4 className="text-white font-bold mb-6 text-sm uppercase tracking-wider">Resources</h4>
             <ul className="space-y-4">
                 <li><button className="text-sm text-gray-400 hover:text-trading-accent transition-colors cursor-not-allowed opacity-50 flex items-center gap-2">Blog <span className="text-[10px] bg-white/10 px-1.5 py-0.5 rounded text-white">Soon</span></button></li>
-                <li><button className="text-sm text-gray-400 hover:text-trading-accent transition-colors cursor-not-allowed opacity-50">Calculators</button></li>
+                <li><button onClick={() => document.getElementById('calculator')?.scrollIntoView({behavior: 'smooth'})} className="text-sm text-gray-400 hover:text-trading-accent transition-colors">Calculators</button></li>
                 <li><button onClick={() => onNavigate('home')} className="text-sm text-gray-400 hover:text-trading-accent transition-colors">FAQ</button></li>
                 <li><button className="text-sm text-gray-400 hover:text-trading-accent transition-colors cursor-not-allowed opacity-50">Academy</button></li>
             </ul>
