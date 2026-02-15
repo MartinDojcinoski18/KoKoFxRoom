@@ -68,7 +68,7 @@ const FullScreenOverlay: React.FC = () => {
   return (
     <div 
         className={`fixed inset-0 z-[99999] bg-[#050709] flex flex-col items-center justify-center p-6 text-center overflow-hidden transition-all duration-1000 ease-[cubic-bezier(0.7,0,0.3,1)] ${
-            status === 'success' || status === 'hidden'
+            status === 'success'
                 ? 'opacity-0 scale-[1.5] pointer-events-none filter blur-xl' 
                 : 'opacity-100 scale-100'
         }`}
