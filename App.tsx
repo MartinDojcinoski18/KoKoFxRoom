@@ -3,7 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Showcase from './components/Showcase';
-import TelegramPreview from './components/TelegramPreview';
+import DiscordPreview from './components/DiscordPreview';
 import Stats from './components/Stats';
 import Philosophy from './components/Philosophy';
 import Features from './components/Features';
@@ -71,7 +71,7 @@ function App() {
             <RiskCalculator /> 
             <Glossary />
             <Showcase />
-            <TelegramPreview />
+            <DiscordPreview />
             <Philosophy />
             <Features />
             <GeminiWisdom />

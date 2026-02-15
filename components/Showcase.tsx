@@ -25,8 +25,8 @@ const Showcase: React.FC = () => {
                 </p>
             </div>
             <div className="hidden md:block">
-                 <a href="https://t.me/kokofxroom" className="text-sm font-bold text-white border-b border-trading-accent pb-1 hover:text-trading-accent transition-colors">
-                    View Live in Telegram &rarr;
+                 <a href="https://discord.gg/4znatm94Fv" className="text-sm font-bold text-white border-b border-trading-accent pb-1 hover:text-trading-accent transition-colors">
+                    View Live in Discord &rarr;
                  </a>
             </div>
         </div>

@@ -38,7 +38,7 @@ const LegalPages: React.FC<LegalPageProps> = ({ type, onBack }) => {
 
                 <h3 className="text-xl font-bold text-white mt-8">3. Educational Nature</h3>
                 <p>
-                    Any opinions, news, research, analyses, prices, or other information contained on this website or in the "KoKoFx Room" Telegram group is provided as general market commentary and educational material, and <strong className="text-white">DOES NOT constitute investment advice</strong>. KoKoFx Room will not accept liability for any loss or damage, including without limitation to, any loss of profit, which may arise directly or indirectly from use of or reliance on such information.
+                    Any opinions, news, research, analyses, prices, or other information contained on this website or in the "KoKoFx Room" Discord server is provided as general market commentary and educational material, and <strong className="text-white">DOES NOT constitute investment advice</strong>. KoKoFx Room will not accept liability for any loss or damage, including without limitation to, any loss of profit, which may arise directly or indirectly from use of or reliance on such information.
                 </p>
 
                 <h3 className="text-xl font-bold text-white mt-8">4. Past Performance</h3>
@@ -69,9 +69,9 @@ const LegalPages: React.FC<LegalPageProps> = ({ type, onBack }) => {
                       This website is primarily informational. We do not use registration forms, we do not request credit cards, and we do not collect personal data directly through the site, except for standard anonymous analytical data (Google Analytics) for site traffic monitoring.
                   </p>
   
-                  <h3 className="text-xl font-bold text-white mt-8">3. Telegram Group</h3>
+                  <h3 className="text-xl font-bold text-white mt-8">3. Discord Server</h3>
                   <p>
-                      If you decide to join our Telegram group, your data (name, username) is governed by Telegram's privacy policy. We do not have access to your private data beyond what is publicly visible in the group.
+                      If you decide to join our Discord server, your data (name, username) is governed by Discord's privacy policy. We do not have access to your private data beyond what is publicly visible in the group.
                   </p>
   
                   <h3 className="text-xl font-bold text-white mt-8">4. Cookies</h3>
@@ -92,7 +92,7 @@ const LegalPages: React.FC<LegalPageProps> = ({ type, onBack }) => {
               <div className="prose prose-invert prose-lg max-w-none text-gray-300 space-y-6">
                   <h3 className="text-xl font-bold text-white mt-8">1. Acceptance of Terms</h3>
                   <p>
-                      By accessing this website and joining the KoKoFx Room Telegram group, you agree to be bound by these Terms of Use, all applicable laws and regulations.
+                      By accessing this website and joining the KoKoFx Room Discord server, you agree to be bound by these Terms of Use, all applicable laws and regulations.
                   </p>
   
                   <h3 className="text-xl font-bold text-white mt-8">2. Use License</h3>
@@ -108,7 +108,7 @@ const LegalPages: React.FC<LegalPageProps> = ({ type, onBack }) => {
   
                   <h3 className="text-xl font-bold text-white mt-8">3. Community Conduct</h3>
                   <p>
-                      KoKoFx Room is a community for professional development. Hate speech, spamming, insults, or promoting other services is strictly prohibited and will result in immediate removal from the group.
+                      KoKoFx Room is a community for professional development. Hate speech, spamming, insults, or promoting other services is strictly prohibited and will result in immediate removal from the server.
                   </p>
 
                   <h3 className="text-xl font-bold text-white mt-8">4. Accuracy of Materials</h3>

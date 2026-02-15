@@ -1,5 +1,5 @@
 import React from 'react';
-import { Send, Instagram, Twitter, Linkedin, Mail, ShieldAlert, Globe, Clock } from 'lucide-react';
+import { Send, Instagram, Twitter, Linkedin, Mail, ShieldAlert, Globe, Clock, MessageCircle } from 'lucide-react';
 import Logo from './Logo';
 
 interface FooterProps {
@@ -13,21 +13,21 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
         {/* Top Call to Action Box */}
         <div className="flex flex-col md:flex-row justify-between items-center bg-[#0B0E11] p-8 rounded-2xl border border-white/5 mb-16 relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-trading-accent/5 rounded-full blur-[80px] group-hover:bg-trading-accent/10 transition-all"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#5865F2]/10 rounded-full blur-[80px] group-hover:bg-[#5865F2]/20 transition-all"></div>
             
             <div className="relative z-10 mb-6 md:mb-0">
                 <h3 className="text-2xl font-bold text-white mb-2">Ready to start?</h3>
-                <p className="text-trading-muted">Join the community on Telegram. <span className="text-white">It's free.</span></p>
+                <p className="text-trading-muted">Join the community on Discord. <span className="text-white">It's free.</span></p>
             </div>
             
             <a 
-              href="https://t.me/kokofxroom" 
+              href="https://discord.gg/4znatm94Fv" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="relative z-10 flex items-center gap-3 px-8 py-3 bg-white text-black font-bold rounded-xl hover:bg-trading-accent transition-all shadow-lg hover:shadow-trading-accent/20 hover:scale-105 active:scale-95"
+              className="relative z-10 flex items-center gap-3 px-8 py-3 bg-[#5865F2] text-white font-bold rounded-xl hover:bg-[#4752c4] transition-all shadow-lg hover:shadow-[#5865F2]/30 hover:scale-105 active:scale-95"
             >
-                <Send size={18} />
-                <span>Join the Room</span>
+                <MessageCircle size={18} />
+                <span>Join the Server</span>
             </a>
         </div>
 
@@ -101,7 +101,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                     </span>
                     <span className="text-xs font-bold text-green-500 uppercase tracking-wide">Operational</span>
                 </div>
-                <p className="text-xs text-gray-500 mb-3">Telegram & AI Systems</p>
+                <p className="text-xs text-gray-500 mb-3">Discord & AI Systems</p>
                 
                 <div className="h-px bg-white/5 w-full mb-3"></div>
                 

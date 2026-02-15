@@ -61,7 +61,7 @@ const FAQ: React.FC = () => {
     },
     {
       question: "Do you sell a course?",
-      answer: "Currently, NO. Everything I know is available in the group for free. I might offer advanced 1-on-1 coaching in the future for those who want to accelerate their curve, but the core education will always remain accessible."
+      answer: "Currently, NO. Everything I know is available in the Discord for free. I might offer advanced 1-on-1 coaching in the future for those who want to accelerate their curve, but the core education will always remain accessible."
     }
   ];
 
@@ -159,7 +159,7 @@ const FAQ: React.FC = () => {
 
                 <div className="md:w-1/3 flex justify-center md:justify-end">
                     <a 
-                        href="https://t.me/kokofxroom"
+                        href="https://discord.gg/4znatm94Fv"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="group relative inline-flex items-center gap-3 px-8 py-4 bg-trading-accent text-black font-bold text-lg rounded-xl transition-all hover:bg-[#c4a030] hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(212,175,55,0.3)]"

@@ -22,7 +22,7 @@ const FinalCTA: React.FC = () => {
 
                 <div className="flex flex-col md:flex-row items-center justify-center gap-6">
                     <a 
-                        href="https://t.me/kokofxroom" 
+                        href="https://discord.gg/4znatm94Fv" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="group relative px-10 py-6 bg-white text-black font-black text-xl rounded-2xl hover:bg-gray-200 transition-all shadow-[0_0_40px_rgba(255,255,255,0.1)] hover:shadow-[0_0_60px_rgba(255,255,255,0.3)] hover:-translate-y-1 w-full md:w-auto flex items-center justify-center gap-4"
