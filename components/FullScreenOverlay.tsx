@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Maximize, Zap, ShieldCheck, Terminal, Cpu, Wifi, Lock } from 'lucide-react';
+import { Maximize, ShieldCheck, Terminal, Cpu, Wifi, Lock } from 'lucide-react';
 import { soundService } from '../services/soundService';
 
 const FullScreenOverlay: React.FC = () => {
@@ -81,12 +81,18 @@ const FullScreenOverlay: React.FC = () => {
       {status === 'idle' && (
         <div className="relative z-10 max-w-lg w-full animate-fade-in-up">
             <div className="mb-10 flex justify-center">
-                <div className="w-24 h-24 bg-[#0B0E11] rounded-3xl border border-white/10 flex items-center justify-center relative group">
+                <div className="w-24 h-24 bg-[#0B0E11] rounded-3xl border border-white/10 flex items-center justify-center relative group overflow-hidden">
                     <div className="absolute inset-0 bg-trading-accent/5 rounded-3xl blur-xl group-hover:bg-trading-accent/20 transition-all duration-500"></div>
-                    <Zap size={40} className="text-white relative z-10 group-hover:text-trading-accent transition-colors" fill="currentColor" />
+                    
+                    {/* Custom Logo Image */}
+                    <img 
+                        src="https://i.postimg.cc/hv0LGvMv/Chat-GPT-Image-Feb-15-2026-02-17-14-PM.png"
+                        alt="System Core"
+                        className="w-full h-full object-cover relative z-10 opacity-90 group-hover:opacity-100 transition-opacity p-1"
+                    />
                     
                     {/* Rotating Ring */}
-                    <div className="absolute inset-0 border border-white/5 rounded-3xl animate-[spin_10s_linear_infinite]"></div>
+                    <div className="absolute inset-0 border border-white/5 rounded-3xl animate-[spin_10s_linear_infinite] z-20 pointer-events-none"></div>
                 </div>
             </div>
 
