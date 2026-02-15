@@ -95,3 +95,22 @@ body {
     transform: none !important;
   }
 }
+
+/* NUCLEAR FIX FOR IPHONE/MOBILE VISIBILITY */
+/* This forces all scroll animations to be instantly visible on screens smaller than 768px (Mobile) */
+@media (max-width: 768px) {
+  .scroll-reveal-item {
+    opacity: 1 !important;
+    transform: translate(0) !important;
+    animation: none !important;
+    transition: none !important;
+    visibility: visible !important;
+  }
+  
+  /* Force Hero animations to trigger instantly on mobile */
+  .hero-animate-mobile {
+     opacity: 1 !important;
+     transform: translate(0) !important;
+     animation: none !important;
+  }
+}

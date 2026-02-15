@@ -76,7 +76,8 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
   return (
     <div
       ref={ref}
-      className={`transition-all duration-700 ease-out will-change-transform ${className} ${getTransform()}`}
+      // 'scroll-reveal-item' class allows us to force visibility via CSS on mobile
+      className={`scroll-reveal-item transition-all duration-700 ease-out will-change-transform ${className} ${getTransform()}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {children}

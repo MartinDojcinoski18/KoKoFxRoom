@@ -20,7 +20,8 @@ const Hero: React.FC<HeroProps> = ({ isReady = true }) => {
 
   // If system is ready OR we are on iOS (forceShow), animate in.
   const shouldShow = isReady || forceShow;
-  const animClass = shouldShow ? 'animate-fade-in-up' : 'opacity-0';
+  // 'hero-animate-mobile' allows CSS to override opacity on mobile
+  const animClass = shouldShow ? 'animate-fade-in-up' : 'opacity-0 hero-animate-mobile';
 
   return (
     <div className="relative min-h-screen flex items-center justify-center pt-20 pb-10 overflow-hidden bg-[#0B0E11]">
