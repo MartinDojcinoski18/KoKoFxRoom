@@ -21,6 +21,8 @@ import FinalCTA from './components/FinalCTA';
 import CookieBanner from './components/CookieBanner';
 import Security from './components/Security';
 import FullScreenOverlay from './components/FullScreenOverlay';
+import RiskCalculator from './components/Calculator';
+import Glossary from './components/Glossary';
 
 type PageView = 'home' | 'risk' | 'privacy' | 'terms';
 
@@ -64,6 +66,8 @@ function App() {
             <About />
             <TradingRules />
             <DailyChecklist />
+            <RiskCalculator /> {/* New Calculator Section */}
+            <Glossary /> {/* New Glossary Section */}
             <Showcase />
             <TelegramPreview />
             <Philosophy />
