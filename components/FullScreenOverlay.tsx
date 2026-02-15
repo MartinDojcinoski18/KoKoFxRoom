@@ -1,14 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Maximize, Lock, Wifi } from 'lucide-react';
 import { soundService } from '../services/soundService';
 
 const FullScreenOverlay: React.FC = () => {
   const [status, setStatus] = useState<'idle' | 'success' | 'hidden'>('idle');
 
+  // LOCK SCROLL EFFECT
+  useEffect(() => {
+    // When the component mounts (overlay is visible), lock scrolling
+    document.body.style.overflow = 'hidden';
+    document.body.style.height = '100vh'; // Fix for some mobile browsers
+    document.body.style.touchAction = 'none'; // Disable touch scrolling
+
+    return () => {
+        // Cleanup just in case
+        document.body.style.overflow = '';
+        document.body.style.height = '';
+        document.body.style.touchAction = '';
+    };
+  }, []);
+
   const handleEnter = async () => {
     soundService.playClick();
     
-    // Trigger Full Screen
+    // Trigger Full Screen (Optional/Best Effort)
     try {
       if (document.documentElement.requestFullscreen) {
         await document.documentElement.requestFullscreen();
@@ -19,7 +34,12 @@ const FullScreenOverlay: React.FC = () => {
       console.log("Full screen info: ", err);
     }
 
-    // Start fade-out animation immediately (No Matrix text)
+    // Unlock scrolling immediately before animation starts
+    document.body.style.overflow = '';
+    document.body.style.height = '';
+    document.body.style.touchAction = '';
+
+    // Start fade-out animation
     setStatus('success');
     
     // Wait for animation to finish before removing from DOM
@@ -38,6 +58,9 @@ const FullScreenOverlay: React.FC = () => {
                 : 'opacity-100 scale-100'
         }`}
         style={{ cursor: 'auto' }} 
+        // Prevent scrolling events from bubbling up
+        onTouchMove={(e) => e.preventDefault()}
+        onWheel={(e) => e.preventDefault()}
     >
       {/* Background Grid */}
       <div className="absolute inset-0 opacity-[0.05]" style={{backgroundImage: 'radial-gradient(#D4AF37 1px, transparent 1px)', backgroundSize: '30px 30px'}}></div>

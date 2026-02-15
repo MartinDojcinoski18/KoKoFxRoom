@@ -18,25 +18,26 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
 
   useEffect(() => {
     // SAFETY FALLBACK:
-    // On some mobile devices, if the observer fails to fire (rare but possible during fast scrolls),
-    // force visibility after a short timeout so content is never stuck as invisible.
+    // Reduced time to 1000ms. If the observer fails on mobile, 
+    // force show content quickly so the page isn't blank.
     const safetyTimer = setTimeout(() => {
         if (!isVisible) setIsVisible(true);
-    }, 3000);
+    }, 1000);
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // Trigger as soon as ANY pixel is visible (threshold: 0)
-        // This fixes the issue where elements wouldn't load on mobile scroll
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.disconnect(); // Only animate once
+          observer.disconnect(); 
           clearTimeout(safetyTimer);
         }
       },
       { 
-        threshold: 0, // Trigger immediately
-        rootMargin: '100px' // Start animating 100px BEFORE the element enters the viewport
+        threshold: 0, 
+        // Increased margin to 20%. This means the animation triggers 
+        // BEFORE the element even enters the screen (pre-loading it),
+        // which prevents blank spaces during fast scrolling on phones.
+        rootMargin: '20%' 
       }
     );
 
@@ -54,11 +55,11 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
   const getTransform = () => {
     if (!isVisible) {
       switch (direction) {
-        case 'up': return 'translate-y-16'; // Increased distance slightly for better effect
-        case 'left': return '-translate-x-12';
-        case 'right': return 'translate-x-12';
+        case 'up': return 'translate-y-10'; // Reduced movement distance for smoother mobile feel
+        case 'left': return '-translate-x-8';
+        case 'right': return 'translate-x-8';
         case 'none': return '';
-        default: return 'translate-y-16';
+        default: return 'translate-y-10';
       }
     }
     return 'translate-y-0 translate-x-0';
@@ -67,7 +68,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
   return (
     <div
       ref={ref}
-      className={`transition-all duration-1000 ease-out will-change-[opacity,transform] ${className} ${
+      className={`transition-all duration-700 ease-out will-change-[opacity,transform] ${className} ${
         isVisible ? 'opacity-100' : 'opacity-0'
       } ${getTransform()}`}
       style={{ transitionDelay: `${delay}ms` }}
