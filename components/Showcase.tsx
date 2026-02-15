@@ -47,12 +47,12 @@ const Showcase: React.FC = () => {
                              <div className="w-8 h-8 rounded bg-blue-500/10 flex items-center justify-center text-blue-500 font-bold text-xs border border-blue-500/20">EU</div>
                              <div>
                                 <h4 className="text-white font-bold text-sm">EUR/USD</h4>
-                                <p className="text-gray-500 text-[10px] uppercase font-mono tracking-wider">Short Position</p>
+                                <p className="text-gray-500 text-[10px] uppercase font-mono tracking-wider">Long Position</p>
                              </div>
                         </div>
                     </div>
                     <div className="flex gap-2">
-                        <span className="px-2 py-1 bg-red-500/10 text-red-400 border border-red-500/20 text-[10px] font-bold rounded uppercase">Sell</span>
+                        <span className="px-2 py-1 bg-green-500/10 text-green-400 border border-green-500/20 text-[10px] font-bold rounded uppercase">Buy</span>
                         <span className="px-2 py-1 bg-white/5 text-gray-400 border border-white/10 text-[10px] font-bold rounded uppercase">M5</span>
                     </div>
                 </div>
@@ -78,7 +78,7 @@ const Showcase: React.FC = () => {
                      <div>
                         <p className="text-gray-500 text-[10px] uppercase font-bold tracking-widest mb-1">Technical Confluence</p>
                         <p className="text-gray-300 text-xs leading-relaxed">
-                            Liquidity Sweep of Asian Highs + Break of Structure (BOS) on M5 timeframe. Entry on retest.
+                            Liquidity Sweep of Asian Lows + Break of Structure (BOS) on M5 timeframe. Entry on retest.
                         </p>
                      </div>
                      <div className="space-y-2">
@@ -155,7 +155,7 @@ const Showcase: React.FC = () => {
                         </div>
                         <div className="flex justify-between text-xs">
                             <span className="text-gray-500">Session</span>
-                            <span className="text-blue-400 font-mono">NY</span>
+                            <span className="text-blue-400 font-mono">London</span>
                         </div>
                      </div>
                 </div>
