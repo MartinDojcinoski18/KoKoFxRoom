@@ -20,7 +20,6 @@ import DailyChecklist from './components/DailyChecklist';
 import FinalCTA from './components/FinalCTA';
 import CookieBanner from './components/CookieBanner';
 import Security from './components/Security';
-import FullScreenOverlay from './components/FullScreenOverlay';
 import RiskCalculator from './components/Calculator';
 import Glossary from './components/Glossary';
 
@@ -37,9 +36,6 @@ function App() {
     <div className="min-h-screen bg-[#050709] text-trading-text font-sans selection:bg-trading-accent/30 selection:text-white flex flex-col relative">
       {/* SECURITY LAYER - ACTIVATED */}
       <Security />
-      
-      {/* FULL SCREEN TRIGGER LAYER */}
-      <FullScreenOverlay />
       
       {/* Modern Custom Cursor */}
       <CustomCursor />
