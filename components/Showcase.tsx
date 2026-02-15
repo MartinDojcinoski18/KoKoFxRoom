@@ -1,5 +1,5 @@
 import React from 'react';
-import { Crosshair } from 'lucide-react';
+import { Crosshair, Loader2, Lock } from 'lucide-react';
 
 const Showcase: React.FC = () => {
   return (
@@ -31,135 +31,29 @@ const Showcase: React.FC = () => {
             </div>
         </div>
 
-        {/* Flat Grid Container */}
-        <div className="relative max-w-7xl mx-auto">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        {/* Placeholder Container - Replacing the Charts Grid */}
+        <div className="relative max-w-4xl mx-auto">
+          <div className="bg-[#0E1217] border border-white/5 rounded-2xl p-16 text-center relative overflow-hidden group hover:border-white/10 transition-colors">
             
-            {/* Chart 1: EUR/USD - Technical Journal Entry */}
-            <div className="group relative">
-              <div className="relative rounded-xl overflow-hidden border border-white/10 bg-[#0E1217] hover:border-white/20 transition-all duration-300">
+            {/* Background Pattern */}
+            <div className="absolute inset-0 opacity-[0.03]" style={{backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', backgroundSize: '20px 20px'}}></div>
+
+            <div className="relative z-10 flex flex-col items-center justify-center">
+                <div className="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center mb-6 border border-white/10 shadow-[0_0_30px_rgba(255,255,255,0.05)] group-hover:scale-110 transition-transform duration-500">
+                    <Lock size={32} className="text-gray-400" />
+                </div>
+
+                <h3 className="text-2xl font-bold text-white mb-4">Awaiting Live Data</h3>
                 
-                {/* Technical Header */}
-                <div className="bg-[#151A21] px-6 py-4 border-b border-white/5 flex justify-between items-center">
-                    <div className="flex items-center gap-4">
-                        <div className="flex items-center gap-2">
-                             <div className="w-8 h-8 rounded bg-blue-500/10 flex items-center justify-center text-blue-500 font-bold text-xs border border-blue-500/20">EU</div>
-                             <div>
-                                <h4 className="text-white font-bold text-sm">EUR/USD</h4>
-                                <p className="text-gray-500 text-[10px] uppercase font-mono tracking-wider">Long Position</p>
-                             </div>
-                        </div>
-                    </div>
-                    <div className="flex gap-2">
-                        <span className="px-2 py-1 bg-green-500/10 text-green-400 border border-green-500/20 text-[10px] font-bold rounded uppercase">Buy</span>
-                        <span className="px-2 py-1 bg-white/5 text-gray-400 border border-white/10 text-[10px] font-bold rounded uppercase">M5</span>
-                    </div>
-                </div>
+                <p className="text-gray-500 text-lg max-w-lg mx-auto leading-relaxed mb-8">
+                    The public trade journal is currently being prepared for the new season. 
+                    Verified breakdowns and chart analysis will be uploaded here as soon as the next high-probability setup occurs.
+                </p>
 
-                {/* Image Area */}
-                <div className="aspect-[16/10] relative overflow-hidden bg-[#000] group-hover:opacity-90 transition-opacity">
-                    {/* Grid Overlay */}
-                    <div className="absolute inset-0 opacity-10" style={{backgroundImage: 'linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px)', backgroundSize: '20px 20px'}}></div>
-                    
-                     <img 
-                        src="https://i.postimg.cc/SNW5YqJH/trade1-png.png" 
-                        alt="EURUSD Chart Analysis" 
-                        className="w-full h-full object-cover" 
-                        onError={(e) => {
-                            e.currentTarget.src = "https://images.unsplash.com/photo-1642543492481-44e81e3914a7?q=80&w=1200&auto=format&fit=crop";
-                            e.currentTarget.onerror = null;
-                        }}
-                    />
+                <div className="flex items-center gap-3 px-5 py-2 bg-trading-accent/5 border border-trading-accent/20 rounded-full">
+                    <Loader2 size={14} className="text-trading-accent animate-spin" />
+                    <span className="text-xs font-bold text-trading-accent uppercase tracking-widest">System Ready</span>
                 </div>
-
-                {/* Journal Data */}
-                <div className="p-6 grid grid-cols-2 gap-6 bg-[#0E1217]">
-                     <div>
-                        <p className="text-gray-500 text-[10px] uppercase font-bold tracking-widest mb-1">Technical Confluence</p>
-                        <p className="text-gray-300 text-xs leading-relaxed">
-                            Liquidity Sweep of Asian Lows + Break of Structure (BOS) on M5 timeframe. Entry on retest.
-                        </p>
-                     </div>
-                     <div className="space-y-2">
-                        <div className="flex justify-between text-xs border-b border-white/5 pb-1">
-                            <span className="text-gray-500">Risk</span>
-                            <span className="text-white font-mono">0.5%</span>
-                        </div>
-                        <div className="flex justify-between text-xs border-b border-white/5 pb-1">
-                            <span className="text-gray-500">Reward</span>
-                            <span className="text-green-400 font-mono">+1.5%</span>
-                        </div>
-                        <div className="flex justify-between text-xs">
-                            <span className="text-gray-500">Session</span>
-                            <span className="text-blue-400 font-mono">London</span>
-                        </div>
-                     </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Chart 2: GBP/USD - Technical Journal Entry */}
-            <div className="group relative">
-              <div className="relative rounded-xl overflow-hidden border border-white/10 bg-[#0E1217] hover:border-trading-accent/20 transition-all duration-300">
-                
-                {/* Technical Header */}
-                <div className="bg-[#151A21] px-6 py-4 border-b border-white/5 flex justify-between items-center">
-                    <div className="flex items-center gap-4">
-                        <div className="flex items-center gap-2">
-                             <div className="w-8 h-8 rounded bg-trading-accent/10 flex items-center justify-center text-trading-accent font-bold text-xs border border-trading-accent/20">GU</div>
-                             <div>
-                                <h4 className="text-white font-bold text-sm">GBP/USD</h4>
-                                <p className="text-gray-500 text-[10px] uppercase font-mono tracking-wider">Long Position</p>
-                             </div>
-                        </div>
-                    </div>
-                    <div className="flex gap-2">
-                        <span className="px-2 py-1 bg-green-500/10 text-green-400 border border-green-500/20 text-[10px] font-bold rounded uppercase">Buy</span>
-                        <span className="px-2 py-1 bg-white/5 text-gray-400 border border-white/10 text-[10px] font-bold rounded uppercase">M15</span>
-                    </div>
-                </div>
-
-                {/* Image Area */}
-                <div className="aspect-[16/10] relative overflow-hidden bg-[#000] group-hover:opacity-90 transition-opacity">
-                    {/* Grid Overlay */}
-                    <div className="absolute inset-0 opacity-10" style={{backgroundImage: 'linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px)', backgroundSize: '20px 20px'}}></div>
-                    
-                     <img 
-                        src="https://i.postimg.cc/SNW5YqJH/trade2-png.png" 
-                        alt="GBPUSD Chart Analysis" 
-                        className="w-full h-full object-cover" 
-                        onError={(e) => {
-                            e.currentTarget.src = "https://images.unsplash.com/photo-1611974765270-ca1258634369?q=80&w=1200&auto=format&fit=crop";
-                            e.currentTarget.onerror = null;
-                        }}
-                    />
-                </div>
-
-                {/* Journal Data */}
-                <div className="p-6 grid grid-cols-2 gap-6 bg-[#0E1217]">
-                     <div>
-                        <p className="text-gray-500 text-[10px] uppercase font-bold tracking-widest mb-1">Technical Confluence</p>
-                        <p className="text-gray-300 text-xs leading-relaxed">
-                            Reaction from 4H Order Block + Shift in Market Structure on 15m.
-                        </p>
-                     </div>
-                     <div className="space-y-2">
-                        <div className="flex justify-between text-xs border-b border-white/5 pb-1">
-                            <span className="text-gray-500">Risk</span>
-                            <span className="text-white font-mono">1.0%</span>
-                        </div>
-                        <div className="flex justify-between text-xs border-b border-white/5 pb-1">
-                            <span className="text-gray-500">Reward</span>
-                            <span className="text-green-400 font-mono">+3.0%</span>
-                        </div>
-                        <div className="flex justify-between text-xs">
-                            <span className="text-gray-500">Session</span>
-                            <span className="text-blue-400 font-mono">London</span>
-                        </div>
-                     </div>
-                </div>
-              </div>
             </div>
 
           </div>
