@@ -1,5 +1,5 @@
 import React from 'react';
-import { User, BookOpen, TrendingUp } from 'lucide-react';
+import { User, BookOpen, TrendingUp, Monitor } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 
 const About: React.FC = () => {
@@ -25,15 +25,15 @@ const About: React.FC = () => {
             <div className="prose prose-invert max-w-none mb-12">
                 <ScrollReveal delay={200}>
                     <p className="text-gray-300 text-lg leading-relaxed mb-6">
-                        I am the <strong>Head Trader</strong> behind KoKoFx. I have been navigating the Forex markets for over 4 years. 
-                        My journey wasn't easy—it was built on trial, error, and eventual consistency.
+                        I am the <strong>Head Trader</strong> behind KoKoFx. I have been navigating the financial markets for <strong>8 years</strong>. 
+                        My journey wasn't easy—it was built on thousands of hours of chart time, trial, error, and eventual consistency.
                     </p>
                 </ScrollReveal>
                 
                 <ScrollReveal delay={300}>
                     <p className="text-gray-300 text-lg leading-relaxed mb-6">
-                        I specialize in <strong>Price Action</strong> and <strong>Market Structure</strong>, primarily focusing on the London Session.
-                        I don't believe in magic indicators or "get rich quick" schemes. I believe in discipline, patience, and strict risk management.
+                        I specialize in <strong>Price Action</strong> and Market Structure. I trade a diversified portfolio using <strong>Interactive Brokers (IBKR)</strong> and <strong>Trading212</strong>, alongside traditional Forex pairs.
+                        I don't believe in magic indicators. I believe in discipline, patience, and strict risk management.
                     </p>
                 </ScrollReveal>
 
@@ -45,9 +45,9 @@ const About: React.FC = () => {
                 </ScrollReveal>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <ScrollReveal delay={500}>
-                    <div className="bg-[#151A21] p-6 rounded-xl border border-white/5">
+                    <div className="bg-[#151A21] p-6 rounded-xl border border-white/5 h-full">
                         <BookOpen className="w-8 h-8 text-trading-accent mb-4" />
                         <h4 className="text-xl font-bold text-white mb-2">Education First</h4>
                         <p className="text-sm text-gray-400">
@@ -57,11 +57,21 @@ const About: React.FC = () => {
                 </ScrollReveal>
 
                 <ScrollReveal delay={600}>
-                    <div className="bg-[#151A21] p-6 rounded-xl border border-white/5">
-                        <TrendingUp className="w-8 h-8 text-blue-400 mb-4" />
+                    <div className="bg-[#151A21] p-6 rounded-xl border border-white/5 h-full">
+                        <Monitor className="w-8 h-8 text-blue-400 mb-4" />
+                        <h4 className="text-xl font-bold text-white mb-2">Multi-Platform</h4>
+                        <p className="text-sm text-gray-400">
+                            Execution on professional-grade brokers like <span className="text-white font-bold">IBKR</span> & <span className="text-white font-bold">Trading212</span> for maximum reliability.
+                        </p>
+                    </div>
+                </ScrollReveal>
+
+                <ScrollReveal delay={700}>
+                    <div className="bg-[#151A21] p-6 rounded-xl border border-white/5 h-full">
+                        <TrendingUp className="w-8 h-8 text-green-400 mb-4" />
                         <h4 className="text-xl font-bold text-white mb-2">Consistency</h4>
                         <p className="text-sm text-gray-400">
-                            Focusing on long-term growth rather than short-term gambling. We treat trading as a serious business.
+                            Focusing on long-term growth. We treat trading as a serious business, not a casino.
                         </p>
                     </div>
                 </ScrollReveal>

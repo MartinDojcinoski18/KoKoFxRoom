@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ArrowRight, BarChart2 } from 'lucide-react';
+import { ArrowRight, BarChart2, Layers } from 'lucide-react';
 import { soundService } from '../services/soundService';
 
 interface HeroProps {
@@ -67,13 +67,13 @@ const Hero: React.FC<HeroProps> = ({ isReady = true }) => {
 
         <h1 className={`text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tight leading-tight mb-8 ${animClass}`} style={{animationDelay: '0.1s'}}>
             Master the <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-trading-accent to-yellow-200">London Session.</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-trading-accent to-yellow-200">Financial Markets.</span>
         </h1>
         
         <p className={`text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed ${animClass}`} style={{animationDelay: '0.2s'}}>
           Join the community of disciplined traders. 
           <br />
-          Built on 4+ years of Price Action experience and strict Risk Management.
+          Built on <strong>8 years</strong> of Price Action across <span className="text-white font-medium">IBKR</span> & <span className="text-white font-medium">Trading212</span>.
         </p>
 
         <div className={`flex flex-col sm:flex-row gap-4 w-full max-w-md mx-auto ${animClass}`} style={{animationDelay: '0.3s'}}>
@@ -103,7 +103,7 @@ const Hero: React.FC<HeroProps> = ({ isReady = true }) => {
         {/* Stats Strip */}
         <div className={`mt-20 flex flex-wrap justify-center gap-8 md:gap-16 border-t border-white/5 pt-8 ${animClass}`} style={{animationDelay: '0.4s'}}>
             <div className="text-center">
-                <p className="text-3xl font-bold text-white">4+</p>
+                <p className="text-3xl font-bold text-white">8</p>
                 <p className="text-xs text-gray-500 uppercase tracking-widest mt-1">Years Experience</p>
             </div>
             <div className="text-center">
@@ -111,8 +111,11 @@ const Hero: React.FC<HeroProps> = ({ isReady = true }) => {
                 <p className="text-xs text-gray-500 uppercase tracking-widest mt-1">Free Education</p>
             </div>
             <div className="text-center">
-                <p className="text-3xl font-bold text-white">GBP/USD</p>
-                <p className="text-xs text-gray-500 uppercase tracking-widest mt-1">Primary Pair</p>
+                <div className="flex items-center justify-center gap-2">
+                    <Layers size={20} className="text-trading-accent" />
+                    <p className="text-xl font-bold text-white">Multi-Asset</p>
+                </div>
+                <p className="text-xs text-gray-500 uppercase tracking-widest mt-1">IBKR / T212 / FX</p>
             </div>
         </div>
 
