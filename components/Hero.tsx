@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ArrowRight, BarChart2 } from 'lucide-react';
 import { soundService } from '../services/soundService';
 
@@ -7,9 +7,20 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ isReady = true }) => {
-  // If system is not ready (overlay active), we keep opacity 0. 
-  // Once ready, we add the animation class which transitions from opacity 0 to 1.
-  const animClass = isReady ? 'animate-fade-in-up' : 'opacity-0';
+  const [forceShow, setForceShow] = useState(false);
+
+  useEffect(() => {
+    // iOS check to prevent blank hero section
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
+                  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    if (isIOS) {
+        setForceShow(true);
+    }
+  }, []);
+
+  // If system is ready OR we are on iOS (forceShow), animate in.
+  const shouldShow = isReady || forceShow;
+  const animClass = shouldShow ? 'animate-fade-in-up' : 'opacity-0';
 
   return (
     <div className="relative min-h-screen flex items-center justify-center pt-20 pb-10 overflow-hidden bg-[#0B0E11]">

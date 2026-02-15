@@ -17,9 +17,19 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // SAFETY FALLBACK:
-    // Reduced time to 1000ms. If the observer fails on mobile, 
-    // force show content quickly so the page isn't blank.
+    // IOS FIX:
+    // iPhones often fail to trigger IntersectionObserver correctly during scroll
+    // due to the dynamic address bar resizing.
+    // If we detect iOS, we force show the content immediately.
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
+                  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+    if (isIOS) {
+        setIsVisible(true);
+        return;
+    }
+
+    // Standard Logic for other devices
     const safetyTimer = setTimeout(() => {
         if (!isVisible) setIsVisible(true);
     }, 1000);
@@ -34,10 +44,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
       },
       { 
         threshold: 0, 
-        // Increased margin to 20%. This means the animation triggers 
-        // BEFORE the element even enters the screen (pre-loading it),
-        // which prevents blank spaces during fast scrolling on phones.
-        rootMargin: '20%' 
+        rootMargin: '100px' // Increased pixel margin for earlier triggering
       }
     );
 
@@ -53,24 +60,23 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
 
   // Determine initial transform based on direction
   const getTransform = () => {
-    if (!isVisible) {
-      switch (direction) {
-        case 'up': return 'translate-y-10'; // Reduced movement distance for smoother mobile feel
-        case 'left': return '-translate-x-8';
-        case 'right': return 'translate-x-8';
-        case 'none': return '';
-        default: return 'translate-y-10';
-      }
+    // If visible, reset transform
+    if (isVisible) return 'translate-y-0 translate-x-0 opacity-100';
+
+    // If hidden
+    switch (direction) {
+        case 'up': return 'translate-y-8 opacity-0';
+        case 'left': return '-translate-x-8 opacity-0';
+        case 'right': return 'translate-x-8 opacity-0';
+        case 'none': return 'opacity-0';
+        default: return 'translate-y-8 opacity-0';
     }
-    return 'translate-y-0 translate-x-0';
   };
 
   return (
     <div
       ref={ref}
-      className={`transition-all duration-700 ease-out will-change-[opacity,transform] ${className} ${
-        isVisible ? 'opacity-100' : 'opacity-0'
-      } ${getTransform()}`}
+      className={`transition-all duration-700 ease-out will-change-transform ${className} ${getTransform()}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {children}
