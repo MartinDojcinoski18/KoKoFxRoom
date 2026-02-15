@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Maximize, Lock, Wifi } from 'lucide-react';
 import { soundService } from '../services/soundService';
 
-const FullScreenOverlay: React.FC = () => {
+interface FullScreenOverlayProps {
+    onComplete?: () => void;
+}
+
+const FullScreenOverlay: React.FC<FullScreenOverlayProps> = ({ onComplete }) => {
   const [status, setStatus] = useState<'idle' | 'success' | 'hidden'>('idle');
 
   // LOCK SCROLL EFFECT
@@ -41,6 +45,14 @@ const FullScreenOverlay: React.FC = () => {
 
     // Start fade-out animation
     setStatus('success');
+    
+    // Notify app to start animations immediately as overlay begins fading
+    if (onComplete) {
+        // Small delay to ensure smoother transition visually
+        setTimeout(() => {
+            onComplete();
+        }, 300);
+    }
     
     // Wait for animation to finish before removing from DOM
     setTimeout(() => {

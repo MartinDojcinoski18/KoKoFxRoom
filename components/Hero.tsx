@@ -2,7 +2,15 @@ import React from 'react';
 import { ArrowRight, BarChart2 } from 'lucide-react';
 import { soundService } from '../services/soundService';
 
-const Hero: React.FC = () => {
+interface HeroProps {
+    isReady?: boolean;
+}
+
+const Hero: React.FC<HeroProps> = ({ isReady = true }) => {
+  // If system is not ready (overlay active), we keep opacity 0. 
+  // Once ready, we add the animation class which transitions from opacity 0 to 1.
+  const animClass = isReady ? 'animate-fade-in-up' : 'opacity-0';
+
   return (
     <div className="relative min-h-screen flex items-center justify-center pt-20 pb-10 overflow-hidden bg-[#0B0E11]">
       
@@ -13,7 +21,7 @@ const Hero: React.FC = () => {
       <div className="container mx-auto px-6 relative z-10 text-center flex flex-col items-center">
         
         {/* 3D BOARD HERO ELEMENT */}
-        <div className="perspective-1000 mb-16 animate-fade-in-up" style={{animationDelay: '0s'}}>
+        <div className={`perspective-1000 mb-16 ${animClass}`} style={{animationDelay: '0s'}}>
             <div className="relative transform transition-transform duration-500 hover:scale-105 hover:rotate-1 cursor-default group">
                 
                 {/* Glow behind */}
@@ -45,18 +53,18 @@ const Hero: React.FC = () => {
             </div>
         </div>
 
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tight leading-tight mb-8 animate-fade-in-up" style={{animationDelay: '0.1s'}}>
+        <h1 className={`text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tight leading-tight mb-8 ${animClass}`} style={{animationDelay: '0.1s'}}>
             Master the <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-trading-accent to-yellow-200">London Session.</span>
         </h1>
         
-        <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+        <p className={`text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed ${animClass}`} style={{animationDelay: '0.2s'}}>
           Join the community of disciplined traders. 
           <br />
           Built on 4+ years of Price Action experience and strict Risk Management.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md mx-auto animate-fade-in-up" style={{animationDelay: '0.3s'}}>
+        <div className={`flex flex-col sm:flex-row gap-4 w-full max-w-md mx-auto ${animClass}`} style={{animationDelay: '0.3s'}}>
             <a 
                 href="https://t.me/kokofxroom"
                 target="_blank"
@@ -81,7 +89,7 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Stats Strip */}
-        <div className="mt-20 flex flex-wrap justify-center gap-8 md:gap-16 border-t border-white/5 pt-8 animate-fade-in-up" style={{animationDelay: '0.4s'}}>
+        <div className={`mt-20 flex flex-wrap justify-center gap-8 md:gap-16 border-t border-white/5 pt-8 ${animClass}`} style={{animationDelay: '0.4s'}}>
             <div className="text-center">
                 <p className="text-3xl font-bold text-white">4+</p>
                 <p className="text-xs text-gray-500 uppercase tracking-widest mt-1">Years Experience</p>

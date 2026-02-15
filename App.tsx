@@ -28,6 +28,7 @@ type PageView = 'home' | 'risk' | 'privacy' | 'terms';
 
 function App() {
   const [currentView, setCurrentView] = useState<PageView>('home');
+  const [isSystemReady, setIsSystemReady] = useState(false);
 
   const navigateTo = (view: PageView) => {
     setCurrentView(view);
@@ -39,7 +40,7 @@ function App() {
       <Security />
       
       {/* MATRIX / BOOT SYSTEM OVERLAY */}
-      <FullScreenOverlay />
+      <FullScreenOverlay onComplete={() => setIsSystemReady(true)} />
       
       {/* Modern Custom Cursor */}
       <CustomCursor />
@@ -59,15 +60,16 @@ function App() {
       <main className="flex-grow relative z-10">
         {currentView === 'home' ? (
           <>
-            <Hero />
+            {/* Pass isReady to Hero so it only animates AFTER overlay is gone */}
+            <Hero isReady={isSystemReady} />
             <MarketTerminal />
             <Transparency />
             <Stats />
             <About />
             <TradingRules />
             <DailyChecklist />
-            <RiskCalculator /> {/* New Calculator Section */}
-            <Glossary /> {/* New Glossary Section */}
+            <RiskCalculator /> 
+            <Glossary />
             <Showcase />
             <TelegramPreview />
             <Philosophy />

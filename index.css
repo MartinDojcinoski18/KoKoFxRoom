@@ -86,3 +86,12 @@ body {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+/* IMPORTANT FIX FOR MOBILE / LOW POWER MODE */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
