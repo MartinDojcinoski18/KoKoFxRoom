@@ -79,7 +79,7 @@ const MarketTerminal: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 bg-[#0B0E11] relative border-y border-white/5 overflow-hidden">
+    <section id="terminal" className="py-24 bg-[#0B0E11] relative border-y border-white/5 overflow-hidden">
       {/* Background World Map Effect (Abstract) */}
       <div className="absolute inset-0 opacity-[0.02] pointer-events-none select-none flex items-center justify-center">
          <Globe size={600} />

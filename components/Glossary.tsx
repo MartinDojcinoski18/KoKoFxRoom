@@ -61,7 +61,7 @@ const strategySteps = [
 
 const Glossary: React.FC = () => {
   return (
-    <section className="py-24 bg-[#0F1318]">
+    <section id="methodology" className="py-24 bg-[#0F1318]">
       <div className="container mx-auto px-6">
         
         <ScrollReveal>

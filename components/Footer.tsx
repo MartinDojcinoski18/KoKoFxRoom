@@ -45,6 +45,17 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
     return nd.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
   };
 
+  const scrollToSection = (id: string) => {
+    soundService.playClick();
+    onNavigate('home');
+    setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, 100);
+  };
+
   return (
     <footer className="relative z-10 bg-[#050709] pt-20 border-t border-white/5 mt-auto">
       
@@ -104,7 +115,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           
           {/* Brand Column (4 cols) */}
           <div className="lg:col-span-4 space-y-6">
-            <button onClick={() => onNavigate('home')} className="block">
+            <button onClick={() => scrollToSection('root')} className="block">
                 <Logo />
             </button>
             <p className="text-gray-400 text-sm leading-relaxed pr-4">
@@ -127,9 +138,9 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
             <div className="flex gap-3 pt-2">
                 {[
-                    { icon: <Instagram size={18} />, href: "#" },
-                    { icon: <Twitter size={18} />, href: "#" },
-                    { icon: <Linkedin size={18} />, href: "#" },
+                    { icon: <Instagram size={18} />, href: "https://discord.gg/4znatm94Fv" },
+                    { icon: <Twitter size={18} />, href: "https://discord.gg/4znatm94Fv" },
+                    { icon: <Linkedin size={18} />, href: "https://discord.gg/4znatm94Fv" },
                     { icon: <MessageCircle size={18} />, href: "https://discord.gg/4znatm94Fv" }
                 ].map((social, i) => (
                     <a key={i} href={social.href} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-lg bg-white/5 border border-white/5 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all hover:-translate-y-1">
@@ -146,9 +157,9 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 Ecosystem
             </h4>
             <ul className="space-y-3">
-                <li><button onClick={() => onNavigate('home')} className="text-sm text-gray-400 hover:text-trading-accent transition-colors">Terminal</button></li>
-                <li><button onClick={() => document.getElementById('showcase')?.scrollIntoView({behavior: 'smooth'})} className="text-sm text-gray-400 hover:text-trading-accent transition-colors">Trade Journal</button></li>
-                <li><button onClick={() => document.getElementById('features')?.scrollIntoView({behavior: 'smooth'})} className="text-sm text-gray-400 hover:text-trading-accent transition-colors">Methodology</button></li>
+                <li><button onClick={() => scrollToSection('terminal')} className="text-sm text-gray-400 hover:text-trading-accent transition-colors">Terminal</button></li>
+                <li><button onClick={() => scrollToSection('showcase')} className="text-sm text-gray-400 hover:text-trading-accent transition-colors">Trade Journal</button></li>
+                <li><button onClick={() => scrollToSection('methodology')} className="text-sm text-gray-400 hover:text-trading-accent transition-colors">Methodology</button></li>
                 <li><a href="https://discord.gg/4znatm94Fv" target="_blank" rel="noreferrer" className="text-sm text-gray-400 hover:text-trading-accent transition-colors flex items-center gap-2">Discord Server <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span></a></li>
             </ul>
           </div>
@@ -160,10 +171,10 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 Tools
             </h4>
             <ul className="space-y-3">
-                <li><button onClick={() => document.getElementById('calculator')?.scrollIntoView({behavior: 'smooth'})} className="text-sm text-gray-400 hover:text-trading-accent transition-colors">Risk Calculator</button></li>
-                <li><button onClick={() => onNavigate('home')} className="text-sm text-gray-400 hover:text-trading-accent transition-colors">Economic Calendar</button></li>
-                <li><button onClick={() => onNavigate('home')} className="text-sm text-gray-400 hover:text-trading-accent transition-colors">Session Converter</button></li>
-                <li><button className="text-sm text-gray-400 hover:text-trading-accent transition-colors cursor-not-allowed opacity-50">Prop Firm Sheet (Soon)</button></li>
+                <li><button onClick={() => scrollToSection('calculator')} className="text-sm text-gray-400 hover:text-trading-accent transition-colors">Risk Calculator</button></li>
+                <li><a href="https://www.forexfactory.com/calendar" target="_blank" rel="noreferrer" className="text-sm text-gray-400 hover:text-trading-accent transition-colors">Economic Calendar</a></li>
+                <li><button onClick={() => scrollToSection('terminal')} className="text-sm text-gray-400 hover:text-trading-accent transition-colors">Session Converter</button></li>
+                <li><a href="https://discord.gg/4znatm94Fv" target="_blank" rel="noreferrer" className="text-sm text-gray-400 hover:text-trading-accent transition-colors">Prop Firm Sheet</a></li>
             </ul>
           </div>
 
