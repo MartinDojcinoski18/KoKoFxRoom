@@ -1,28 +1,44 @@
 import React, { useEffect, useRef } from 'react';
-import { Calendar, Globe } from 'lucide-react';
+import { Globe } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 
 const EconomicCalendar: React.FC = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const widgetContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Prevent duplicate script injection
-    if (containerRef.current && containerRef.current.childElementCount === 0) {
-      const script = document.createElement('script');
-      script.src = "https://s3.tradingview.com/external-embedding/embed-widget-events.js";
-      script.type = "text/javascript";
-      script.async = true;
-      script.innerHTML = JSON.stringify({
-        "colorTheme": "dark",
-        "isTransparent": true,
-        "width": "100%",
-        "height": "600",
-        "locale": "en",
-        "importanceFilter": "-1,0,1",
-        "currencyFilter": "USD,EUR,GBP,JPY,AUD,CAD,CHF",
-        "text": "#E0E6ED"
-      });
-      containerRef.current.appendChild(script);
+    // Clean up previous instances to prevent React strict mode duplication
+    if (widgetContainerRef.current) {
+        widgetContainerRef.current.innerHTML = '';
+    }
+
+    const container = document.createElement('div');
+    container.className = 'tradingview-widget-container';
+    container.style.width = '100%';
+    container.style.height = '100%';
+    
+    const widget = document.createElement('div');
+    widget.className = 'tradingview-widget-container__widget';
+    container.appendChild(widget);
+
+    const script = document.createElement('script');
+    script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-events.js';
+    script.type = 'text/javascript';
+    script.async = true;
+    script.innerHTML = JSON.stringify({
+      "colorTheme": "dark",
+      "isTransparent": true,
+      "width": "100%",
+      "height": "100%",
+      "locale": "en",
+      "importanceFilter": "0,1", // Shows Medium and High impact events
+      "currencyFilter": "USD,EUR,GBP,JPY,CAD,AUD,CHF", // Major pairs only
+      "text": "#E0E6ED"
+    });
+
+    container.appendChild(script);
+
+    if (widgetContainerRef.current) {
+        widgetContainerRef.current.appendChild(container);
     }
   }, []);
 
@@ -30,8 +46,7 @@ const EconomicCalendar: React.FC = () => {
     <section id="calendar" className="py-24 bg-[#0B0E11] relative border-t border-white/5">
       {/* Background Decor */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-trading-accent/50 to-transparent"></div>
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[120px] pointer-events-none"></div>
-
+      
       <div className="container mx-auto px-6 relative z-10">
         <ScrollReveal>
             <div className="text-center mb-12">
@@ -48,20 +63,24 @@ const EconomicCalendar: React.FC = () => {
             </div>
         </ScrollReveal>
 
-        <div className="max-w-5xl mx-auto bg-[#151A21] border border-white/10 rounded-3xl p-4 md:p-8 shadow-2xl relative overflow-hidden">
+        <div className="max-w-5xl mx-auto bg-[#151A21] border border-white/10 rounded-3xl overflow-hidden shadow-2xl relative">
             {/* Custom Header to mask standard widget feel */}
-            <div className="flex items-center gap-3 mb-6 border-b border-white/5 pb-4 px-2">
+            <div className="flex items-center gap-3 border-b border-white/5 p-4 bg-[#1A2029]">
                 <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
-                <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">Live Feed Connection</span>
+                <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">Live Connection Established</span>
             </div>
 
-            {/* TradingView Widget Container */}
-            <div className="tradingview-widget-container" ref={containerRef}>
-                <div className="tradingview-widget-container__widget"></div>
+            {/* TradingView Widget Wrapper with fixed height to prevent collapse */}
+            <div 
+                ref={widgetContainerRef} 
+                className="w-full h-[600px] bg-[#151A21]"
+                style={{ minHeight: '600px' }}
+            >
+                {/* Script will be injected here */}
             </div>
             
-            {/* Overlay to hide branding if necessary (optional) */}
-            <div className="absolute bottom-0 left-0 w-full h-8 bg-[#151A21] pointer-events-none"></div>
+            {/* Bottom bar masking */}
+            <div className="absolute bottom-0 left-0 w-full h-10 bg-[#151A21] pointer-events-none z-20"></div>
         </div>
 
       </div>
