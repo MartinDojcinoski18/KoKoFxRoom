@@ -23,6 +23,7 @@ import Security from './components/Security';
 import RiskCalculator from './components/Calculator';
 import Glossary from './components/Glossary';
 import FullScreenOverlay from './components/FullScreenOverlay';
+import EconomicCalendar from './components/EconomicCalendar';
 
 type PageView = 'home' | 'risk' | 'privacy' | 'terms';
 
@@ -68,6 +69,7 @@ function App() {
             <About />
             <TradingRules />
             <DailyChecklist />
+            <EconomicCalendar />
             <RiskCalculator /> 
             <Glossary />
             <Showcase />

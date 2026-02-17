@@ -172,7 +172,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </h4>
             <ul className="space-y-3">
                 <li><button onClick={() => scrollToSection('calculator')} className="text-sm text-gray-400 hover:text-trading-accent transition-colors">Risk Calculator</button></li>
-                <li><a href="https://www.forexfactory.com/calendar" target="_blank" rel="noreferrer" className="text-sm text-gray-400 hover:text-trading-accent transition-colors">Economic Calendar</a></li>
+                <li><button onClick={() => scrollToSection('calendar')} className="text-sm text-gray-400 hover:text-trading-accent transition-colors">Economic Calendar</button></li>
                 <li><button onClick={() => scrollToSection('terminal')} className="text-sm text-gray-400 hover:text-trading-accent transition-colors">Session Converter</button></li>
                 <li><a href="https://discord.gg/4znatm94Fv" target="_blank" rel="noreferrer" className="text-sm text-gray-400 hover:text-trading-accent transition-colors">Prop Firm Sheet</a></li>
             </ul>
