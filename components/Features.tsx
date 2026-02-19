@@ -1,5 +1,5 @@
 import React from 'react';
-import { Target, Zap, Users, Lock, BarChart2, BookOpen, ArrowRight } from 'lucide-react';
+import { Target, Zap, Users, Lock, BarChart2, BookOpen } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 
 const features = [
@@ -42,38 +42,26 @@ const Features: React.FC = () => {
         <ScrollReveal>
             <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-white">Why Join?</h2>
-            <p className="text-trading-muted text-lg">Hover over the cards for details.</p>
+            <p className="text-trading-muted text-lg">Everything you need to succeed.</p>
             </div>
         </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <ScrollReveal key={index} delay={index * 100}>
-                {/* 3D Flip Container */}
-                <div className="group h-[320px] perspective-1000 cursor-pointer">
-                    <div className="flip-card-inner relative w-full h-full shadow-2xl rounded-2xl">
-                        
-                        {/* FRONT SIDE (Absolute positioning fixes the layout) */}
-                        <div className="flip-card-front absolute inset-0 w-full h-full glass-panel rounded-2xl border border-white/5 flex flex-col items-center justify-center p-6 hover:border-trading-accent/30 transition-colors z-20 bg-[#151A21]">
-                            <div className="w-16 h-16 rounded-xl bg-white/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 border border-white/5">
-                                {feature.icon}
-                            </div>
-                            <h3 className="text-xl font-bold text-white text-center">{feature.title}</h3>
-                            <div className="mt-6 flex items-center gap-2 text-xs text-trading-muted uppercase tracking-widest opacity-60 bg-black/20 px-3 py-1 rounded-full border border-white/5">
-                                <span>Hover Info</span> <ArrowRight size={12} />
-                            </div>
+                {/* 2D Card - Removed Flip Effect */}
+                <div className="group h-full bg-[#151A21] border border-white/5 rounded-2xl p-8 hover:border-trading-accent/30 transition-all hover:-translate-y-2 relative overflow-hidden">
+                    {/* Subtle Background Highlight */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    
+                    <div className="relative z-10">
+                        <div className="w-16 h-16 rounded-xl bg-white/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 border border-white/5">
+                            {feature.icon}
                         </div>
-
-                        {/* BACK SIDE (Absolute positioning ensures it sits 'behind' the front) */}
-                        <div className="flip-card-back absolute inset-0 w-full h-full bg-[#151A21] rounded-2xl border border-trading-accent/20 p-8 flex items-center justify-center text-center bg-gradient-to-br from-[#1A2129] to-[#0B0E11] z-10">
-                            <div>
-                                <h3 className="text-lg font-bold text-white mb-4 border-b border-trading-accent/30 pb-2 inline-block">{feature.title}</h3>
-                                <p className="text-gray-300 leading-relaxed text-sm">
-                                    {feature.description}
-                                </p>
-                            </div>
-                        </div>
-                        
+                        <h3 className="text-xl font-bold text-white mb-4">{feature.title}</h3>
+                        <p className="text-gray-400 leading-relaxed text-sm">
+                            {feature.description}
+                        </p>
                     </div>
                 </div>
             </ScrollReveal>

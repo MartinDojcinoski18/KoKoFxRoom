@@ -14,7 +14,6 @@ import LegalPages from './components/LegalPages';
 import BackgroundAnimation from './components/BackgroundAnimation';
 import Transparency from './components/Transparency';
 import TradingRules from './components/TradingRules';
-import CustomCursor from './components/CustomCursor';
 import MarketTerminal from './components/MarketTerminal';
 import DailyChecklist from './components/DailyChecklist';
 import FinalCTA from './components/FinalCTA';
@@ -38,9 +37,6 @@ function App() {
       {/* SECURITY LAYER - ACTIVATED */}
       <Security />
       
-      {/* Modern Custom Cursor */}
-      <CustomCursor />
-
       {/* Global Texture (Noise) - Makes it look premium/real */}
       <div className="bg-noise"></div>
 

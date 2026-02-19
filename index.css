@@ -6,22 +6,6 @@
   .glass-panel {
     @apply bg-[#151A21]/80 backdrop-blur-xl border border-white/10 shadow-2xl;
   }
-  .perspective-1000 {
-    perspective: 1200px;
-  }
-  .flip-card-inner {
-    transform-style: preserve-3d;
-    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .group:hover .flip-card-inner {
-    transform: rotateY(180deg);
-  }
-  .flip-card-front, .flip-card-back {
-    backface-visibility: hidden;
-  }
-  .flip-card-back {
-    transform: rotateY(180deg);
-  }
   
   /* Premium Noise Texture */
   .bg-noise {
@@ -51,13 +35,6 @@ body {
   font-feature-settings: "cv11", "ss01", "tnum"; /* tnum makes numbers monospaced/aligned */
   overflow-x: hidden;
   width: 100%;
-}
-
-/* Hide Default Cursor ONLY on Desktop */
-@media (hover: hover) and (pointer: fine) {
-  body, a, button, input, textarea, select, [role="button"] {
-    cursor: none !important;
-  }
 }
 
 /* Scrollbar - Thinner, more elegant */

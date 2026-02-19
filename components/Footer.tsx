@@ -174,7 +174,6 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 <li><button onClick={() => scrollToSection('calculator')} className="text-sm text-gray-400 hover:text-trading-accent transition-colors">Risk Calculator</button></li>
                 <li><button onClick={() => scrollToSection('calendar')} className="text-sm text-gray-400 hover:text-trading-accent transition-colors">Economic Calendar</button></li>
                 <li><button onClick={() => scrollToSection('terminal')} className="text-sm text-gray-400 hover:text-trading-accent transition-colors">Session Converter</button></li>
-                <li><a href="https://whop.com/koko-market-journal/kmj-public/" target="_blank" rel="noreferrer" className="text-sm text-gray-400 hover:text-trading-accent transition-colors">Prop Firm Sheet</a></li>
             </ul>
           </div>
 

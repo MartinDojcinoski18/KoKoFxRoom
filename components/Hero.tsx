@@ -32,15 +32,15 @@ const Hero: React.FC<HeroProps> = ({ isReady = true }) => {
       
       <div className="container mx-auto px-6 relative z-10 text-center flex flex-col items-center">
         
-        {/* 3D BOARD HERO ELEMENT */}
-        <div className={`perspective-1000 mb-16 ${animClass}`} style={{animationDelay: '0s'}}>
-            <div className="relative transform transition-transform duration-500 hover:scale-105 hover:rotate-1 cursor-default group">
+        {/* FLAT BOARD HERO ELEMENT */}
+        <div className={`mb-16 ${animClass}`} style={{animationDelay: '0s'}}>
+            <div className="relative transform transition-transform duration-500 hover:scale-105 cursor-default group">
                 
                 {/* Glow behind */}
                 <div className="absolute inset-0 bg-trading-accent/20 blur-3xl rounded-2xl group-hover:bg-trading-accent/30 transition-all duration-700"></div>
                 
-                {/* The 3D Board Itself */}
-                <div className="relative bg-[#151A21] border border-white/10 px-12 py-6 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex items-center gap-5 bg-gradient-to-b from-[#1a2029] to-[#0B0E11] overflow-hidden">
+                {/* The Board Itself - Now 2D */}
+                <div className="relative bg-[#151A21] border border-white/10 px-12 py-6 rounded-2xl shadow-2xl flex items-center gap-5 bg-gradient-to-b from-[#1a2029] to-[#0B0E11] overflow-hidden">
                     
                     {/* Top Highlight (Glass edge) */}
                     <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
@@ -54,9 +54,9 @@ const Hero: React.FC<HeroProps> = ({ isReady = true }) => {
                         <div className="absolute inset-0 bg-trading-accent rounded-full animate-ping opacity-20"></div>
                     </div>
 
-                    {/* Text 3D Effect */}
+                    {/* Text Effect */}
                     <div className="flex flex-col items-start">
-                        <h1 className="text-2xl md:text-3xl font-black text-white tracking-[0.2em] uppercase drop-shadow-2xl leading-none">
+                        <h1 className="text-2xl md:text-3xl font-black text-white tracking-[0.2em] uppercase leading-none">
                             KoKo
                         </h1>
                         <span className="text-sm md:text-base font-bold text-trading-accent tracking-[0.3em] uppercase leading-none">
@@ -64,9 +64,6 @@ const Hero: React.FC<HeroProps> = ({ isReady = true }) => {
                         </span>
                     </div>
                 </div>
-                
-                {/* 3D Depth/Shadow Layer */}
-                <div className="absolute top-3 left-3 w-full h-full bg-black/60 rounded-2xl -z-10 blur-sm"></div>
             </div>
         </div>
 
