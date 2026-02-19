@@ -138,10 +138,10 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
             <div className="flex gap-3 pt-2">
                 {[
-                    { icon: <Instagram size={18} />, href: "https://discord.gg/FnevZxAZGH" },
-                    { icon: <Twitter size={18} />, href: "https://discord.gg/FnevZxAZGH" },
-                    { icon: <Linkedin size={18} />, href: "https://discord.gg/FnevZxAZGH" },
-                    { icon: <MessageCircle size={18} />, href: "https://discord.gg/FnevZxAZGH" }
+                    { icon: <Instagram size={18} />, href: "https://whop.com/koko-market-journal/kmj-public/" },
+                    { icon: <Twitter size={18} />, href: "https://whop.com/koko-market-journal/kmj-public/" },
+                    { icon: <Linkedin size={18} />, href: "https://whop.com/koko-market-journal/kmj-public/" },
+                    { icon: <MessageCircle size={18} />, href: "https://whop.com/koko-market-journal/kmj-public/" }
                 ].map((social, i) => (
                     <a key={i} href={social.href} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-lg bg-white/5 border border-white/5 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all hover:-translate-y-1">
                         {social.icon}
@@ -160,7 +160,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 <li><button onClick={() => scrollToSection('terminal')} className="text-sm text-gray-400 hover:text-trading-accent transition-colors">Terminal</button></li>
                 <li><button onClick={() => scrollToSection('showcase')} className="text-sm text-gray-400 hover:text-trading-accent transition-colors">Trade Journal</button></li>
                 <li><button onClick={() => scrollToSection('methodology')} className="text-sm text-gray-400 hover:text-trading-accent transition-colors">Methodology</button></li>
-                <li><a href="https://discord.gg/FnevZxAZGH" target="_blank" rel="noreferrer" className="text-sm text-gray-400 hover:text-trading-accent transition-colors flex items-center gap-2">Discord Server <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span></a></li>
+                <li><a href="https://whop.com/koko-market-journal/kmj-public/" target="_blank" rel="noreferrer" className="text-sm text-gray-400 hover:text-trading-accent transition-colors flex items-center gap-2">Community <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span></a></li>
             </ul>
           </div>
 
@@ -174,7 +174,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 <li><button onClick={() => scrollToSection('calculator')} className="text-sm text-gray-400 hover:text-trading-accent transition-colors">Risk Calculator</button></li>
                 <li><button onClick={() => scrollToSection('calendar')} className="text-sm text-gray-400 hover:text-trading-accent transition-colors">Economic Calendar</button></li>
                 <li><button onClick={() => scrollToSection('terminal')} className="text-sm text-gray-400 hover:text-trading-accent transition-colors">Session Converter</button></li>
-                <li><a href="https://discord.gg/FnevZxAZGH" target="_blank" rel="noreferrer" className="text-sm text-gray-400 hover:text-trading-accent transition-colors">Prop Firm Sheet</a></li>
+                <li><a href="https://whop.com/koko-market-journal/kmj-public/" target="_blank" rel="noreferrer" className="text-sm text-gray-400 hover:text-trading-accent transition-colors">Prop Firm Sheet</a></li>
             </ul>
           </div>
 

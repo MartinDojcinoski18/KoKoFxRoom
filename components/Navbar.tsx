@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Logo from './Logo';
-import { Menu, X, MessageCircle, Volume2, VolumeX, ArrowRight, Maximize, Minimize } from 'lucide-react';
+import { Menu, X, MessageCircle, Volume2, VolumeX, ArrowRight, Maximize, Minimize, UserPlus } from 'lucide-react';
 import { soundService } from '../services/soundService';
 
 interface NavbarProps {
@@ -116,14 +116,14 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
                     </button>
 
                     <a 
-                    href="https://discord.gg/FnevZxAZGH"
+                    href="https://whop.com/koko-market-journal/kmj-public/"
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => soundService.playClick()}
                     className="hidden md:flex items-center gap-2 px-5 py-2 bg-[#5865F2] text-white font-bold text-[10px] uppercase tracking-wider rounded hover:bg-[#4752c4] transition-all duration-300"
                     >
-                        <span>Discord</span>
-                        <MessageCircle size={10} />
+                        <span>Join Now</span>
+                        <UserPlus size={12} />
                     </a>
 
                     <button 
@@ -163,10 +163,12 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
 
                     <div className="pt-8 border-t border-white/10">
                         <a 
-                            href="https://discord.gg/FnevZxAZGH"
+                            href="https://whop.com/koko-market-journal/kmj-public/"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="w-full py-4 bg-[#5865F2] text-white font-bold text-lg uppercase tracking-widest flex items-center justify-center gap-3 rounded"
                         >
-                            Join Discord <ArrowRight />
+                            Join Community <ArrowRight />
                         </a>
                     </div>
                 </div>

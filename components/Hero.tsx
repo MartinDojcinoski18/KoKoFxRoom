@@ -83,13 +83,13 @@ const Hero: React.FC<HeroProps> = ({ isReady = true }) => {
 
         <div className={`flex flex-col sm:flex-row gap-4 w-full max-w-md mx-auto ${animClass}`} style={{animationDelay: '0.3s'}}>
             <a 
-                href="https://discord.gg/FnevZxAZGH"
+                href="https://whop.com/koko-market-journal/kmj-public/"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => soundService.playClick()}
                 className="flex-1 px-8 py-4 bg-trading-accent text-black font-bold text-sm uppercase tracking-widest rounded-xl hover:bg-[#ffe16b] transition-all flex items-center justify-center gap-3 shadow-lg shadow-trading-accent/20"
             >
-                <span>Join Discord</span>
+                <span>Join Now</span>
                 <ArrowRight size={16} />
             </a>
 

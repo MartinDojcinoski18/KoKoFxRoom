@@ -31,13 +31,13 @@ const DiscordPreview: React.FC = () => {
                 </p>
 
                 <a 
-                href="https://discord.gg/FnevZxAZGH" 
+                href="https://whop.com/koko-market-journal/kmj-public/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 px-8 py-4 bg-[#5865F2] hover:bg-[#4752c4] text-white font-bold rounded-xl transition-all shadow-[0_0_20px_rgba(88,101,242,0.3)] hover:shadow-[0_0_30px_rgba(88,101,242,0.5)] transform hover:-translate-y-1"
                 >
                 <Send className="w-5 h-5" />
-                Join Server
+                Join Community
                 </a>
           </div>
 
