@@ -31,7 +31,7 @@ const DiscordPreview: React.FC = () => {
                 </p>
 
                 <a 
-                href="https://discord.gg/4znatm94Fv" 
+                href="https://discord.gg/FnevZxAZGH" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 px-8 py-4 bg-[#5865F2] hover:bg-[#4752c4] text-white font-bold rounded-xl transition-all shadow-[0_0_20px_rgba(88,101,242,0.3)] hover:shadow-[0_0_30px_rgba(88,101,242,0.5)] transform hover:-translate-y-1"
@@ -52,7 +52,7 @@ const DiscordPreview: React.FC = () => {
                      <div className="w-12 h-12 rounded-[24px] bg-[#36393f] flex items-center justify-center hover:rounded-[16px] hover:bg-[#5865F2] transition-all cursor-pointer group relative">
                         {/* Selected Indicator */}
                          <div className="absolute -left-4 w-2 h-10 bg-white rounded-r-lg"></div>
-                         <span className="text-xs font-bold text-white">KF</span>
+                         <span className="text-xs font-bold text-white">MJ</span>
                      </div>
                      <div className="w-12 h-12 rounded-[24px] bg-[#36393f] flex items-center justify-center hover:rounded-[16px] hover:bg-green-500 transition-all cursor-pointer text-gray-400 hover:text-white">
                          <span className="text-[10px] font-bold">+</span>
@@ -63,7 +63,7 @@ const DiscordPreview: React.FC = () => {
                  <div className="w-60 bg-[#2f3136] flex flex-col shrink-0 hidden sm:flex">
                      {/* Header */}
                      <div className="h-12 border-b border-[#202225] px-4 flex items-center justify-between shadow-sm">
-                         <span className="font-bold text-white text-sm truncate">KoKoFx Room</span>
+                         <span className="font-bold text-white text-sm truncate">KoKo Journal</span>
                          <span className="text-gray-400 text-xs">▼</span>
                      </div>
 
@@ -175,7 +175,7 @@ const DiscordPreview: React.FC = () => {
                              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-trading-accent to-yellow-600 shrink-0 mt-0.5 shadow-sm"></div>
                              <div>
                                  <div className="flex items-center gap-2">
-                                     <span className="text-white text-sm font-medium hover:underline cursor-pointer">KoKoFx</span>
+                                     <span className="text-white text-sm font-medium hover:underline cursor-pointer">KoKoMJ</span>
                                      <span className="bg-[#5865F2] text-white text-[9px] px-1 rounded uppercase font-bold">Bot</span>
                                      <span className="text-[#72767d] text-xs">Today at 10:45 AM</span>
                                  </div>
@@ -196,7 +196,7 @@ const DiscordPreview: React.FC = () => {
                              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-trading-accent to-yellow-600 shrink-0 mt-0.5 shadow-sm"></div>
                              <div>
                                  <div className="flex items-center gap-2">
-                                     <span className="text-white text-sm font-medium hover:underline cursor-pointer">KoKoFx</span>
+                                     <span className="text-white text-sm font-medium hover:underline cursor-pointer">KoKoMJ</span>
                                      <span className="bg-[#5865F2] text-white text-[9px] px-1 rounded uppercase font-bold">Bot</span>
                                      <span className="text-[#72767d] text-xs">Today at 11:30 AM</span>
                                  </div>

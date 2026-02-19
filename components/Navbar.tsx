@@ -116,7 +116,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
                     </button>
 
                     <a 
-                    href="https://discord.gg/4znatm94Fv"
+                    href="https://discord.gg/FnevZxAZGH"
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => soundService.playClick()}
@@ -163,7 +163,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
 
                     <div className="pt-8 border-t border-white/10">
                         <a 
-                            href="https://discord.gg/4znatm94Fv"
+                            href="https://discord.gg/FnevZxAZGH"
                             className="w-full py-4 bg-[#5865F2] text-white font-bold text-lg uppercase tracking-widest flex items-center justify-center gap-3 rounded"
                         >
                             Join Discord <ArrowRight />

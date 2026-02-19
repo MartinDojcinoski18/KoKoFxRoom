@@ -38,7 +38,7 @@ const LegalPages: React.FC<LegalPageProps> = ({ type, onBack }) => {
 
                 <h3 className="text-xl font-bold text-white mt-8">3. Educational Nature</h3>
                 <p>
-                    Any opinions, news, research, analyses, prices, or other information contained on this website or in the "KoKoFx Room" Discord server is provided as general market commentary and educational material, and <strong className="text-white">DOES NOT constitute investment advice</strong>. KoKoFx Room will not accept liability for any loss or damage, including without limitation to, any loss of profit, which may arise directly or indirectly from use of or reliance on such information.
+                    Any opinions, news, research, analyses, prices, or other information contained on this website or in the "KoKo Market Journal" Discord server is provided as general market commentary and educational material, and <strong className="text-white">DOES NOT constitute investment advice</strong>. KoKo Market Journal will not accept liability for any loss or damage, including without limitation to, any loss of profit, which may arise directly or indirectly from use of or reliance on such information.
                 </p>
 
                 <h3 className="text-xl font-bold text-white mt-8">4. Past Performance</h3>
@@ -61,7 +61,7 @@ const LegalPages: React.FC<LegalPageProps> = ({ type, onBack }) => {
   
                   <h3 className="text-xl font-bold text-white mt-8">1. Introduction</h3>
                   <p>
-                      At KoKoFx Room, your privacy is a serious matter. This Privacy Policy explains how we (do not) collect and use your data.
+                      At KoKo Market Journal, your privacy is a serious matter. This Privacy Policy explains how we (do not) collect and use your data.
                   </p>
   
                   <h3 className="text-xl font-bold text-white mt-8">2. Data Collection</h3>
@@ -92,12 +92,12 @@ const LegalPages: React.FC<LegalPageProps> = ({ type, onBack }) => {
               <div className="prose prose-invert prose-lg max-w-none text-gray-300 space-y-6">
                   <h3 className="text-xl font-bold text-white mt-8">1. Acceptance of Terms</h3>
                   <p>
-                      By accessing this website and joining the KoKoFx Room Discord server, you agree to be bound by these Terms of Use, all applicable laws and regulations.
+                      By accessing this website and joining the KoKo Market Journal Discord server, you agree to be bound by these Terms of Use, all applicable laws and regulations.
                   </p>
   
                   <h3 className="text-xl font-bold text-white mt-8">2. Use License</h3>
                   <p>
-                      Permission is granted to temporarily download one copy of the materials (information) on KoKoFx Room's website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title.
+                      Permission is granted to temporarily download one copy of the materials (information) on KoKo Market Journal's website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title.
                   </p>
                   <p>Under this license you may not:</p>
                   <ul className="list-disc pl-6 space-y-2">
@@ -108,12 +108,12 @@ const LegalPages: React.FC<LegalPageProps> = ({ type, onBack }) => {
   
                   <h3 className="text-xl font-bold text-white mt-8">3. Community Conduct</h3>
                   <p>
-                      KoKoFx Room is a community for professional development. Hate speech, spamming, insults, or promoting other services is strictly prohibited and will result in immediate removal from the server.
+                      KoKo Market Journal is a community for professional development. Hate speech, spamming, insults, or promoting other services is strictly prohibited and will result in immediate removal from the server.
                   </p>
 
                   <h3 className="text-xl font-bold text-white mt-8">4. Accuracy of Materials</h3>
                   <p>
-                     The materials appearing on KoKoFx Room's website could include technical, typographical, or photographic errors. KoKoFx Room does not warrant that any of the materials on its website are accurate, complete, or current.
+                     The materials appearing on KoKo Market Journal's website could include technical, typographical, or photographic errors. KoKo Market Journal does not warrant that any of the materials on its website are accurate, complete, or current.
                   </p>
               </div>
             </>

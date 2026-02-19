@@ -22,14 +22,12 @@ import CookieBanner from './components/CookieBanner';
 import Security from './components/Security';
 import RiskCalculator from './components/Calculator';
 import Glossary from './components/Glossary';
-import FullScreenOverlay from './components/FullScreenOverlay';
 import EconomicCalendar from './components/EconomicCalendar';
 
 type PageView = 'home' | 'risk' | 'privacy' | 'terms';
 
 function App() {
   const [currentView, setCurrentView] = useState<PageView>('home');
-  const [isSystemReady, setIsSystemReady] = useState(false);
 
   const navigateTo = (view: PageView) => {
     setCurrentView(view);
@@ -39,9 +37,6 @@ function App() {
     <div className="min-h-screen bg-[#050709] text-trading-text font-sans selection:bg-trading-accent/30 selection:text-white flex flex-col relative">
       {/* SECURITY LAYER - ACTIVATED */}
       <Security />
-      
-      {/* MATRIX / BOOT SYSTEM OVERLAY */}
-      <FullScreenOverlay onComplete={() => setIsSystemReady(true)} />
       
       {/* Modern Custom Cursor */}
       <CustomCursor />
@@ -61,8 +56,7 @@ function App() {
       <main className="flex-grow relative z-10">
         {currentView === 'home' ? (
           <>
-            {/* Pass isReady to Hero so it only animates AFTER overlay is gone */}
-            <Hero isReady={isSystemReady} />
+            <Hero />
             <MarketTerminal />
             <Transparency />
             <Stats />

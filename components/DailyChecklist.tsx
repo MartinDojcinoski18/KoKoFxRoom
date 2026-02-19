@@ -171,7 +171,7 @@ const DailyChecklist: React.FC = () => {
                                 <br/><br/>
                                 <span className="text-green-400 font-bold">Now you may execute.</span>
                             </p>
-                            <a href="https://discord.gg/4znatm94Fv" target="_blank" rel="noopener noreferrer" className="inline-block px-8 py-4 bg-white text-black font-bold rounded-xl hover:bg-gray-200 transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+                            <a href="https://discord.gg/FnevZxAZGH" target="_blank" rel="noopener noreferrer" className="inline-block px-8 py-4 bg-white text-black font-bold rounded-xl hover:bg-gray-200 transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)]">
                                 Enter the Market
                             </a>
                         </div>

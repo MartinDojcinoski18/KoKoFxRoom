@@ -32,7 +32,7 @@ const MentalTicker: React.FC = () => {
                     </span>
                     <div className="flex items-center gap-1 px-3 py-1 bg-trading-accent text-black font-bold text-xs rounded uppercase tracking-widest transform -skew-x-12">
                         <Zap size={12} className="fill-black" />
-                        KoKoFx
+                        KoKo Market Journal
                     </div>
                 </div>
                 ))}

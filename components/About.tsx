@@ -25,7 +25,7 @@ const About: React.FC = () => {
             <div className="prose prose-invert max-w-none mb-12">
                 <ScrollReveal delay={200}>
                     <p className="text-gray-300 text-lg leading-relaxed mb-6">
-                        I am the <strong>Head Trader</strong> behind KoKoFx. I have been navigating the financial markets for <strong>8 years</strong>. 
+                        I am <strong className="text-white">Martin Dojcinoski</strong>, the Head Trader behind KoKo Market Journal. I have been navigating the financial markets for <strong>8 years</strong>. 
                         My journey wasn't easy—it was built on thousands of hours of chart time, trial, error, and eventual consistency.
                     </p>
                 </ScrollReveal>
@@ -39,7 +39,7 @@ const About: React.FC = () => {
 
                 <ScrollReveal delay={400}>
                     <p className="text-gray-300 text-lg leading-relaxed">
-                        KoKoFx Room is my personal community where I share my analysis, my wins, and my losses transparently. 
+                        KoKo Market Journal is my personal community where I share my analysis, my wins, and my losses transparently. 
                         My goal is to help other traders shorten their learning curve by showing them the reality of the markets.
                     </p>
                 </ScrollReveal>

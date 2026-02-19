@@ -55,9 +55,14 @@ const Hero: React.FC<HeroProps> = ({ isReady = true }) => {
                     </div>
 
                     {/* Text 3D Effect */}
-                    <h1 className="text-4xl md:text-5xl font-black text-white tracking-[0.2em] uppercase drop-shadow-2xl" style={{textShadow: '0 4px 10px rgba(0,0,0,0.8)'}}>
-                        KoKo<span className="text-trading-accent">Fx</span>
-                    </h1>
+                    <div className="flex flex-col items-start">
+                        <h1 className="text-2xl md:text-3xl font-black text-white tracking-[0.2em] uppercase drop-shadow-2xl leading-none">
+                            KoKo
+                        </h1>
+                        <span className="text-sm md:text-base font-bold text-trading-accent tracking-[0.3em] uppercase leading-none">
+                            Market Journal
+                        </span>
+                    </div>
                 </div>
                 
                 {/* 3D Depth/Shadow Layer */}
@@ -78,7 +83,7 @@ const Hero: React.FC<HeroProps> = ({ isReady = true }) => {
 
         <div className={`flex flex-col sm:flex-row gap-4 w-full max-w-md mx-auto ${animClass}`} style={{animationDelay: '0.3s'}}>
             <a 
-                href="https://discord.gg/4znatm94Fv"
+                href="https://discord.gg/FnevZxAZGH"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => soundService.playClick()}
