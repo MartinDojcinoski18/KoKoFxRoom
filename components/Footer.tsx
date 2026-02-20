@@ -171,7 +171,6 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 Tools
             </h4>
             <ul className="space-y-3">
-                <li><button onClick={() => scrollToSection('calculator')} className="text-sm text-gray-400 hover:text-trading-accent transition-colors">Risk Calculator</button></li>
                 <li><button onClick={() => scrollToSection('calendar')} className="text-sm text-gray-400 hover:text-trading-accent transition-colors">Economic Calendar</button></li>
                 <li><button onClick={() => scrollToSection('terminal')} className="text-sm text-gray-400 hover:text-trading-accent transition-colors">Session Converter</button></li>
             </ul>

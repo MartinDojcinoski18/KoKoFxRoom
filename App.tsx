@@ -15,11 +15,9 @@ import BackgroundAnimation from './components/BackgroundAnimation';
 import Transparency from './components/Transparency';
 import TradingRules from './components/TradingRules';
 import MarketTerminal from './components/MarketTerminal';
-import DailyChecklist from './components/DailyChecklist';
 import FinalCTA from './components/FinalCTA';
 import CookieBanner from './components/CookieBanner';
 import Security from './components/Security';
-import RiskCalculator from './components/Calculator';
 import Glossary from './components/Glossary';
 import EconomicCalendar from './components/EconomicCalendar';
 
@@ -58,9 +56,7 @@ function App() {
             <Stats />
             <About />
             <TradingRules />
-            <DailyChecklist />
             <EconomicCalendar />
-            <RiskCalculator /> 
             <Glossary />
             <Showcase />
             <DiscordPreview />
