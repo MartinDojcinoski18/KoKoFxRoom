@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Clock, Globe, MapPin, Activity, Calendar, Ban, Crosshair, AlertTriangle } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
+import TradingViewTicker from './TradingViewTicker';
 
 const MarketTerminal: React.FC = () => {
   const [time, setTime] = useState(new Date());
@@ -214,7 +215,7 @@ const MarketTerminal: React.FC = () => {
         </ScrollReveal>
         
         {/* UTC Reference */}
-        <div className="text-center mt-16">
+        <div className="text-center mt-16 mb-12">
              <div className="inline-flex items-center gap-2 bg-black/40 px-6 py-3 rounded-full border border-white/10 text-gray-400 font-mono text-sm">
                 <Clock size={14} />
                 <span>Current UTC: {time.toLocaleTimeString('en-GB', { timeZone: 'UTC' })}</span>
@@ -222,7 +223,9 @@ const MarketTerminal: React.FC = () => {
         </div>
 
         {/* Scrolling Ticker Bottom */}
-        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+        <div className="w-full border-t border-white/5 pt-4">
+            <TradingViewTicker />
+        </div>
       </div>
     </section>
   );

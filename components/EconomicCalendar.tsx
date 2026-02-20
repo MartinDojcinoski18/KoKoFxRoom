@@ -6,40 +6,51 @@ const EconomicCalendar: React.FC = () => {
   const widgetContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const currentContainer = widgetContainerRef.current;
+    if (!currentContainer) return;
+
     // Clean up previous instances to prevent React strict mode duplication
-    if (widgetContainerRef.current) {
-        widgetContainerRef.current.innerHTML = '';
-    }
+    currentContainer.innerHTML = '';
 
-    const container = document.createElement('div');
-    container.className = 'tradingview-widget-container';
-    container.style.width = '100%';
-    container.style.height = '100%';
-    
-    const widget = document.createElement('div');
-    widget.className = 'tradingview-widget-container__widget';
-    container.appendChild(widget);
+    let rafId: number | null = null;
 
-    const script = document.createElement('script');
-    script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-events.js';
-    script.type = 'text/javascript';
-    script.async = true;
-    script.innerHTML = JSON.stringify({
-      "colorTheme": "dark",
-      "isTransparent": true,
-      "width": "100%",
-      "height": "100%",
-      "locale": "en",
-      "importanceFilter": "0,1", // Shows Medium and High impact events
-      "currencyFilter": "USD,EUR,GBP,JPY,CAD,AUD,CHF", // Major pairs only
-      "text": "#E0E6ED"
+    rafId = requestAnimationFrame(() => {
+        if (!currentContainer) return;
+
+        const container = document.createElement('div');
+        container.className = 'tradingview-widget-container';
+        container.style.width = '100%';
+        container.style.height = '100%';
+        
+        const widget = document.createElement('div');
+        widget.className = 'tradingview-widget-container__widget';
+        container.appendChild(widget);
+
+        const script = document.createElement('script');
+        script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-events.js';
+        script.type = 'text/javascript';
+        script.async = true;
+        script.innerHTML = JSON.stringify({
+          "colorTheme": "dark",
+          "isTransparent": true,
+          "width": "100%",
+          "height": "100%",
+          "locale": "en",
+          "importanceFilter": "0,1", // Shows Medium and High impact events
+          "currencyFilter": "USD,EUR,GBP,JPY,CAD,AUD,CHF", // Major pairs only
+          "text": "#E0E6ED"
+        });
+
+        container.appendChild(script);
+        currentContainer.appendChild(container);
     });
 
-    container.appendChild(script);
-
-    if (widgetContainerRef.current) {
-        widgetContainerRef.current.appendChild(container);
-    }
+    return () => {
+        if (rafId) cancelAnimationFrame(rafId);
+        if (currentContainer) {
+            currentContainer.innerHTML = '';
+        }
+    };
   }, []);
 
   return (
