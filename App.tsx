@@ -7,6 +7,7 @@ import DiscordPreview from './components/DiscordPreview';
 import Stats from './components/Stats';
 import Philosophy from './components/Philosophy';
 import Features from './components/Features';
+import Pricing from './components/Pricing';
 import FAQ from './components/FAQ';
 import GeminiWisdom from './components/GeminiWisdom';
 import Footer from './components/Footer';
@@ -62,6 +63,7 @@ function App() {
             <DiscordPreview />
             <Philosophy />
             <Features />
+            <Pricing />
             <GeminiWisdom />
             <FAQ />
             <FinalCTA />

@@ -51,10 +51,10 @@ const Security: React.FC = () => {
     // This makes it extremely annoying for anyone trying to inspect the code.
     const aggressiveProtection = () => {
         // Clear console repeatedly
-        console.clear();
+        // console.clear();
         
         // This log is a decoy
-        console.log("%c SECURITY SYSTEM ACTIVE", "color: red; font-size: 20px; font-weight: bold;");
+        // console.log("%c SECURITY SYSTEM ACTIVE", "color: red; font-size: 20px; font-weight: bold;");
     };
 
     // Attach Listeners
@@ -62,15 +62,15 @@ const Security: React.FC = () => {
     document.addEventListener('keydown', handleKeyDown);
     
     // Initial clear
-    aggressiveProtection();
+    // aggressiveProtection();
 
     // Re-apply protection every 500ms (Very Aggressive)
-    const interval = setInterval(aggressiveProtection, 500);
+    // const interval = setInterval(aggressiveProtection, 500);
 
     return () => {
       document.removeEventListener('contextmenu', handleContextMenu);
       document.removeEventListener('keydown', handleKeyDown);
-      clearInterval(interval);
+      // clearInterval(interval);
     };
   }, []);
 
